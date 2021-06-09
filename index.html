@@ -30,6 +30,10 @@
     <meta name="keywords" content=""/>
     <title>COVID-19 en Perú</title>
 	<link rel="icon" type="image/png" sizes="32x32" href="https://cdn.larepublica.pe/favicon-32x32.png"/>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </head>
 <body>
 <style type="text/css">
@@ -141,6 +145,7 @@ h1 {
     font-size: 5.5rem;
     line-height: 1.3;
     margin-bottom: 3rem;
+    font-weight: bold;
 }
 
 h2 {
@@ -150,10 +155,11 @@ h2 {
 }
 
 h3 {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     font-family: sans-serif;
     width: 100%;
     margin: auto;
+    font-weight: bold;
 }
 
 h4 {
@@ -165,7 +171,7 @@ h4 {
 }
 
 b:before {
-	position: relative;
+    position: relative;
     width: 40px;
     height: 4px;
     background-color: #e30613;
@@ -229,7 +235,7 @@ h3 {
 }
 
 h4 {
-	padding: 0 15px;
+    padding: 0 15px;
 }
 
 @media (max-width: 767px) {
@@ -364,7 +370,7 @@ time {
     font-style: italic;
 }
 .flourish-embed {
-	margin: 20px 10px;
+    margin: 20px 10px;
 }
 
 @media (min-width: 360px) {
@@ -433,11 +439,11 @@ time {
         margin: 30px auto 0px;
     }
     .flourish-embed {
-    	max-width: 720px;
-    	margin: 10px auto;
+        max-width: 720px;
+        margin: 10px auto;
     }
     #fecha {
-    	margin: 20px 0 !important;
+        margin: 20px 0 !important;
     }
 }
 
@@ -572,18 +578,11 @@ time {
     .items__menu {
         display: block;
     }
-    .col-6 {
-		width: 49%;
-	    display: inline-block;
-	    margin-top: 15px;
-	    font-size: 14px;
-	    padding: 5px;
-	}
 }
 .total-box {
     text-align: center;
     background-color: #eee;
-    padding: 20px;
+    padding: 15px;
     margin: 25px auto;
     max-width: 450px;
 }
@@ -591,11 +590,13 @@ time {
     font-size: 28px;
     font-weight: bold;
     color: red;
-    margin: 0;
+    line-height: 1;
 }
 .total-number {
     font-size: 40px;
     font-weight: bold;
+    line-height: 40px;
+    margin-bottom: 0;
 }
 .total-number-sub {
     font-size: 20px;
@@ -613,26 +614,18 @@ time {
     margin: auto;
     min-width: 250px;
 }
-.col-xs-12 {
-    margin-top: 15px;
-    font-size: 14px;
-    padding: 5px;
-}
 .border-right {
-	border-right: 1px solid black;
+    border-right: 1px solid black;
 }
 #fecha {
-	font-size: 16px;
-	font-weight: bold;
-	text-align: center;
-	margin: 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0;
 }
 #content__teaser {
-	max-width: 1440px;
-	margin: auto;
-}
-iframe {
-	padding: 15px;
+    max-width: 1440px;
+    margin: auto;
 }
 small {
     margin: auto;
@@ -642,6 +635,24 @@ small {
     margin-bottom: 20px;
     padding: 0 5px;
     font-size: 12px;
+    line-height: 1;
+}
+.row span {
+    font-size: 14px;
+}
+a {
+    color: #212529;
+}
+.h3-graficas {
+    max-width: initial;
+    padding-bottom: 0;
+}
+.btn.active, .btn:hover {
+    background-color: #205597 !important;
+}
+.btn-outline-primary {
+    border-color: #205597 !important;
+    color: #205597;
 }
 </style>
 <script src="https://d3js.org/d3.v4.js"></script>
@@ -660,9 +671,9 @@ small {
     </div>
 </header>
 
-<div id="content__main"><h1 style="text-align: center;">COVID-19 en Perú</h1>
+<div id="content__main"><h1 style="text-align: center;">COVID-19 en Perú: así evoluciona la pandemia en el país</h1>
 
-    <h2 style="text-align: center;">El primer caso de COVID-19 en Perú fue reportado el 6 de marzo. Desde allí, los casos detectados han crecido de acuerdo a las pruebas tomadas.</h2>
+    <h2 style="text-align: center;">A partir de marzo de 2020, la expansión del coronavirus provocó una crisis sanitaria sin precedentes. Este especial, elaborado en base a la plataforma de Datos Abiertos del Gobierno, muestra en tiempo real los principales datos de la pandemia y cómo ha evolucionado a lo largo de estos meses.</h2>
     <p id="fecha">Reporte actualizado al: </p>
     <div class="total-box">
       <p class="total-title">Total positivos</p>
@@ -674,27 +685,159 @@ small {
 
 <div id="content__teaser">
 
-    <iframe title="Positivos por día" aria-label="Interactive area chart" id="datawrapper-chart-WtNm2" src="https://datawrapper.dwcdn.net/WtNm2/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="600"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++)t[r].contentWindow===e.source&&(t[r].style.height=e.data["datawrapper-height"][a]+"px")}}))}();
-    </script>
-
-    <iframe title="Positivos acumulado" aria-label="Interactive area chart" id="datawrapper-chart-Fv99S" src="https://datawrapper.dwcdn.net/Fv99S/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="500"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++)t[r].contentWindow===e.source&&(t[r].style.height=e.data["datawrapper-height"][a]+"px")}}))}();
-    </script>
-    
-    <iframe title="Fallecidos por día" aria-label="Interactive area chart" id="datawrapper-chart-wlfCy" src="https://datawrapper.dwcdn.net/wlfCy/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="600"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++)t[r].contentWindow===e.source&&(t[r].style.height=e.data["datawrapper-height"][a]+"px")}}))}();
-    </script>
-    
-    <iframe title="Fallecidos acumulado" aria-label="Interactive area chart" id="datawrapper-chart-YOY5S" src="https://datawrapper.dwcdn.net/YOY5S/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="500"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++)t[r].contentWindow===e.source&&(t[r].style.height=e.data["datawrapper-height"][a]+"px")}}))}();
-    </script>
-
-    <div class="col-6">
-        <iframe title="Positivos por región" aria-label="Mapa" id="datawrapper-chart-U86jn" src="https://datawrapper.dwcdn.net/U86jn/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="539"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++)t[r].contentWindow===e.source&&(t[r].style.height=e.data["datawrapper-height"][a]+"px")}}))}();
-        </script>
+    <div class="p-4">
+        <ul class="nav nav-pills mb-5" id="pills-tab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="active btn btn-outline-primary btn-lg me-2" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-a" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Positivos</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="btn btn-outline-primary btn-lg me-2" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-b" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Fallecidos</button>
+          </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+            <!-- <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+              <iframe title="Vacunados por día (Copy)" aria-label="Interactive area chart" id="datawrapper-chart-EdyCI" src="https://datawrapper.dwcdn.net/EdyCI/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="600"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();</script>
+          </div> -->
+          <div class="tab-pane fade show active" id="pills-a" role="tabpanel" aria-labelledby="pills-home-tab">
+            <div class="row">
+                <div class="col-md-6">
+                    <iframe title="Positivos por región" aria-label="Mapa" id="datawrapper-chart-yeQUb" src="https://datawrapper.dwcdn.net/yeQUb/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="593"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();</script>
+                </div>
+                <div class="col-md-6">
+                    <iframe title="Positivos por región" aria-label="table" id="datawrapper-chart-ZsT4c" src="https://datawrapper.dwcdn.net/ZsT4c/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="753"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();</script>
+                </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="pills-b" role="tabpanel" aria-labelledby="pills-profile-tab">
+              <div class="row">
+                <div class="col-md-6">
+                    <iframe title="Fallecidos por región" aria-label="Mapa" id="datawrapper-chart-oSNJV" src="https://datawrapper.dwcdn.net/oSNJV/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="593"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();</script>
+                </div>
+                <div class="col-md-6">
+                    <iframe title="Fallecidos por región" aria-label="table" id="datawrapper-chart-mo1vF" src="https://datawrapper.dwcdn.net/mo1vF/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="753"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();</script>
+                </div>
+            </div>
+          </div>
+        </div>
     </div>
 
-    <div class="col-6">
-        <iframe title="Fallecidos por región" aria-label="Mapa" id="datawrapper-chart-lkcsC" src="https://datawrapper.dwcdn.net/lkcsC/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="539"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++)t[r].contentWindow===e.source&&(t[r].style.height=e.data["datawrapper-height"][a]+"px")}}))}();
-        </script>
+    <h3>La crisis del coronavirus por región</h3>
+
+    <p class="texto-lr">A través de varias pestañas, este mapa interactivo permite medir el avance de la pandemia a lo largo del territorio nacional, tanto de manera provincial como regional. Los dos principales indicadores que se han tomado en cuenta son los casos confirmados y las muertes por COVID-19. Para medir el porcentaje de infección y mortalidad en relación a la población de cada zona, se usan datos estimados del Instituto Nacional de Estadística e Informática (INEI) a junio de 2020.</p>
+
+    <p class="texto-lr">La primera presentación del mapa muestra dos variables: el total de casos confirmados y el índice de infección por cada 1.000 habitantes —indicador conveniente para establecer un parámetro equitativo entre densidades poblacionales diferentes—. A partir de las mismas variables, la segunda presentación, también a nivel regional, detalla la situación de los fallecimientos por COVID-19.</p>
+
+    <p class="texto-lr">Las siguientes presentaciones de este mapa toman como punto de origen las mismas variables para medir la situación a nivel provincial. Con ello se percibe un nivel más detallado de la información, útil para elaborar un análisis más integral de la evolución de la pandemia en cada zona del país.</p>
+
+    <h3 class="h3-graficas">Casos positivos de COVID-19 por día</h3>
+
+    <div class="p-4">
+        <ul class="nav nav-pills mb-5" id="pills-tab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="active btn btn-outline-primary btn-lg me-2" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-c" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Total</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="btn btn-outline-primary btn-lg me-2" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-d" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Por tipo de prueba</button>
+          </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+            <!-- <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+              <iframe title="Vacunados por día (Copy)" aria-label="Interactive area chart" id="datawrapper-chart-EdyCI" src="https://datawrapper.dwcdn.net/EdyCI/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="600"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();</script>
+          </div> -->
+          <div class="tab-pane fade show active" id="pills-c" role="tabpanel" aria-labelledby="pills-home-tab">
+            <iframe title="Positivos por día (Total)" aria-label="Interactive area chart" id="datawrapper-chart-EVxBB" src="https://datawrapper.dwcdn.net/EVxBB/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="600"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();</script>
+          </div>
+          <div class="tab-pane fade" id="pills-d" role="tabpanel" aria-labelledby="pills-profile-tab">
+            <iframe title="Positivos por día (Por tipo de prueba)" aria-label="Interactive area chart" id="datawrapper-chart-WtNm2" src="https://datawrapper.dwcdn.net/WtNm2/4/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="600"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();</script>
+          </div>
+        </div>
     </div>
+
+    <h3 class="h3-graficas">Acumulado de positivos para COVID-19</h3>
+
+    <div class="p-4">
+        <ul class="nav nav-pills mb-5" id="pills-tab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="active btn btn-outline-primary btn-lg me-2" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-e" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Total</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="btn btn-outline-primary btn-lg me-2" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-f" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Por tipo de prueba</button>
+          </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+            <!-- <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+              <iframe title="Vacunados por día (Copy)" aria-label="Interactive area chart" id="datawrapper-chart-EdyCI" src="https://datawrapper.dwcdn.net/EdyCI/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="600"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();</script>
+          </div> -->
+          <div class="tab-pane fade show active" id="pills-e" role="tabpanel" aria-labelledby="pills-home-tab">
+            <iframe title="Positivos acumulado (Total)" aria-label="Interactive area chart" id="datawrapper-chart-PpqgQ" src="https://datawrapper.dwcdn.net/PpqgQ/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="500"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();</script>
+          </div>
+          <div class="tab-pane fade" id="pills-f" role="tabpanel" aria-labelledby="pills-profile-tab">
+            <iframe title="Positivos acumulado (Por tipo de prueba)" aria-label="Interactive area chart" id="datawrapper-chart-Fv99S" src="https://datawrapper.dwcdn.net/Fv99S/3/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="500"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();</script>
+          </div>
+        </div>
+    </div>
+
+    <h3>Reporte diario y acumulado de casos COVID-19</h3>
+
+    <p class="texto-lr">El 6 de marzo de 2020 se reportó el primer caso confirmado de coronavirus en el Perú. Desde entonces, el avance de la pandemia ha sido evaluado por el Ministerio de Salud (Minsa) y reportado a la ciudadanía. Esta gráfica reúne los datos consignados por el Gobierno a partir del primer caso hasta la actualidad, con información detallada del tipo de prueba —rápida, molecular o de antígenos— y los contagios totales registrados cada día. Esto permite un seguimiento minucioso de dos aspectos fundamentales: la variación del impacto del virus en la población y la profundidad de la vigilancia epidemiológica desarrollada por las autoridades.</p>
+
+    <p class="texto-lr">Asimismo, la gráfica referida a positivos acumulados por COVID-19 muestra la evolución de los contagios a partir del primer caso. Organizar la información de este modo facilita identificar puntos clave de la crisis sanitaria, como la fecha en que se alcanzó el millón de casos confirmados en el país —18 de diciembre de 2020, con 1.001.227—, y también echar un vistazo general a la evolución del virus. En este caso, se ha tomado en cuenta igualmente el tipo de prueba para seguir la aplicación de cada una.</p>
+
+    <h3 class="h3-graficas">Muertes diarias por COVID-19</h3>
+
+    <div class="p-4">
+        <ul class="nav nav-pills mb-5" id="pills-tab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="active btn btn-outline-primary btn-lg me-2" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-g" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Total</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="btn btn-outline-primary btn-lg me-2" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-h" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Por sexo</button>
+          </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+            <!-- <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+              <iframe title="Vacunados por día (Copy)" aria-label="Interactive area chart" id="datawrapper-chart-EdyCI" src="https://datawrapper.dwcdn.net/EdyCI/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="600"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();</script>
+          </div> -->
+          <div class="tab-pane fade show active" id="pills-g" role="tabpanel" aria-labelledby="pills-home-tab">
+            <iframe title="Fallecidos por día (Total)" aria-label="Interactive area chart" id="datawrapper-chart-UcriA" src="https://datawrapper.dwcdn.net/UcriA/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="627"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();</script>
+          </div>
+          <div class="tab-pane fade" id="pills-h" role="tabpanel" aria-labelledby="pills-profile-tab">
+            <iframe title="Fallecidos por día (Por sexo)" aria-label="Interactive area chart" id="datawrapper-chart-wlfCy" src="https://datawrapper.dwcdn.net/wlfCy/5/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="627"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();</script>
+          </div>
+        </div>
+    </div>
+
+    <h3 class="h3-graficas">Acumulado de positivos para COVID-19</h3>
+
+    <div class="p-4">
+        <ul class="nav nav-pills mb-5" id="pills-tab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="active btn btn-outline-primary btn-lg me-2" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-i" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Total</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="btn btn-outline-primary btn-lg me-2" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-j" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Por sexo</button>
+          </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+            <!-- <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+              <iframe title="Vacunados por día (Copy)" aria-label="Interactive area chart" id="datawrapper-chart-EdyCI" src="https://datawrapper.dwcdn.net/EdyCI/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="600"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();</script>
+          </div> -->
+          <div class="tab-pane fade show active" id="pills-i" role="tabpanel" aria-labelledby="pills-home-tab">
+            <iframe title="Fallecidos acumulado (Total)" aria-label="Interactive area chart" id="datawrapper-chart-oBipB" src="https://datawrapper.dwcdn.net/oBipB/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="500"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();</script>
+          </div>
+          <div class="tab-pane fade" id="pills-j" role="tabpanel" aria-labelledby="pills-profile-tab">
+            <iframe title="Fallecidos acumulado (Por sexo)" aria-label="Interactive area chart" id="datawrapper-chart-YOY5S" src="https://datawrapper.dwcdn.net/YOY5S/3/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="500"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();</script>
+          </div>
+        </div>
+    </div>
+
+    <h3>Reporte diario y acumulado de muertes por COVID-19</h3>
+
+    <p class="texto-lr">Desde que se produjo la primera muerte a causa del coronavirus en el Perú, el 3 de marzo de 2020, el rastreo del número de fallecimientos ha sido una de las labores más cuestionadas y complejas de realizar. En esta gráfica, se utiliza el registro oficial del MINSA —cuyo más reciente sinceramiento se reportó el 31 de mayo de 2021, con lo que se sumaron 180.000 muertes— para analizar la evolución de la mortalidad ocasionada por la pandemia.</p>
+
+    <p class="texto-lr">Para ello, se han dispuesto dos gráficas que, del mismo modo que la presentación de los casos confirmados, miden el avance diario y el acumulado total respectivamente. Sin embargo, a fin de permitir un análisis más completo de la evolución de la mortalidad, aquí se agregan las variables de sexo y de grupo etario. Con ello, se puede determinar con más solvencia qué grupos han sido más vulnerables frente al impacto de la emergencia sanitaria.</p>
+
+    <p class="texto-lr">Esta gráfica interactiva permite filtrar la información, mediante botones seleccionables, las variables de acuerdo a la elección del usuario.</p>
 
     <h4 style="font-style: italic; text-align: right; font-weight: normal;"></h4>
     <p class="texto-lr"><b>Datos:</b><br><a href="https://github.com/annaabsi/git-scraper-covid19">Web Scraping - Anna Absi y Pablo Diaz</a><br><a href="https://www.datosabiertos.gob.pe/dataset/casos-positivos-por-covid-19-ministerio-de-salud-minsa">Casos positivos por COVID-19 - MINSA</a><br><a href="https://www.datosabiertos.gob.pe/dataset/fallecidos-por-covid-19-ministerio-de-salud-minsa">Fallecidos por COVID-19 - MINSA</a><br></p>
@@ -771,12 +914,11 @@ function getData(o) {
 <script type="text/javascript">
 
 d3.csv("https://raw.githubusercontent.com/annaabsi/git-scraper-covid19/main/resultados/positivos_por_departamentos.csv", function(data){
-    var totalSum = [d3.sum(data.map(function(d){ return d.AG})),
-       d3.sum(data.map(function(d){ return d.PCR})),d3.sum(data.map(function(d){ return d.PR}))];
-    var totalPositivos = d3.select("#total-positivos").append("span").text((totalSum[0]+totalSum[1]+totalSum[2]).toLocaleString('id-ID'));
+    var totalSum = [d3.sum(data.map(function(d){ return d.METODODX}))];
+    var totalPositivos = d3.select("#total-positivos").append("span").text((totalSum[0]).toLocaleString('id-ID'));
 });
 
-d3.json("https://raw.githubusercontent.com/annaabsi/git-scraper-covid19/main/resultados/fecha_corte_positivos.json", function (d) {
+d3.json("https://raw.githubusercontent.com/annaabsi/git-scraper-covid19/main/resultados/fecha_corte_fallecidos.json", function (d) {
     var dataDate = d["fecha_corte"].toString();
     var dd = dataDate.slice(6,8);
     var mm = dataDate.slice(4,6);
