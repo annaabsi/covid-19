@@ -7,12 +7,12 @@
     <script src="https://connect.facebook.net/es_LA/sdk.js?hash=6d8f9720f47d5152c43742a0c2e75958&amp;ua=modern_es6"
             async crossorigin="anonymous"></script>
     <script id="facebook-jssdk" src="//connect.facebook.net/es_LA/sdk.js"></script>
-    <link rel="canonical" href="https://data.larepublica.pe/"/>
+    <link rel="canonical" href="https://especiales.larepublica.pe/"/>
     <meta name="robots" content="index,follow"/>
     <meta name="googlebot" content="index, follow"/>
     <meta name="description"
           content="A partir de marzo de 2020, la expansión del coronavirus provocó una crisis sanitaria sin precedentes. Este especial, elaborado en base a la plataforma de Datos Abiertos del Gobierno, muestra en tiempo real los principales datos de la pandemia y cómo ha evolucionado a lo largo de estos meses."/>
-    <meta property="og:url" content="https://data.larepublica.pe/"/>
+    <meta property="og:url" content="https://data.larepublica.pe/envivo-casos-confirmados-muertes-coronavirus-peru"/>
     <meta property="og:title" content="Coronavirus en Perú: así evoluciona la pandemia en el país"/>
     <meta property="og:image" content="https://cloudfront-us-east-1.images.arcpublishing.com/gruporepublica/GYYTAZRTGEZDQOLDG5STINBYMU.png"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
@@ -918,7 +918,7 @@ d3.csv("https://raw.githubusercontent.com/annaabsi/git-scraper-covid19/main/resu
     var totalPositivos = d3.select("#total-positivos").append("span").text((totalSum[0]).toLocaleString('id-ID'));
 });
 
-d3.json("https://raw.githubusercontent.com/annaabsi/git-scraper-covid19/main/resultados/fecha_corte_fallecidos.json", function (d) {
+d3.json("https://raw.githubusercontent.com/annaabsi/git-scraper-covid19/main/resultados/fallecidos.json", function (d) {
     var dataDate = d["fecha_corte"].toString();
     var dd = dataDate.slice(6,8);
     var mm = dataDate.slice(4,6);
