@@ -442,7 +442,7 @@ time {
         max-width: 720px;
         margin: 10px auto;
     }
-    #fecha {
+    .fecha {
         margin: 20px 0 !important;
     }
 }
@@ -617,7 +617,7 @@ time {
 .border-right {
     border-right: 1px solid black;
 }
-#fecha {
+.fecha {
     font-size: 16px;
     font-weight: bold;
     text-align: center;
@@ -674,12 +674,15 @@ a {
 <div id="content__main"><h1 style="text-align: center;">Coronavirus en Perú: así evoluciona la pandemia en el país</h1>
 
     <h2 style="text-align: center;">A partir de marzo de 2020, la expansión del coronavirus provocó una crisis sanitaria sin precedentes. Este especial, elaborado en base a la plataforma de Datos Abiertos del Gobierno, muestra en tiempo real los principales datos de la pandemia y cómo ha evolucionado a lo largo de estos meses.</h2>
-    <p id="fecha">Reporte actualizado al: </p>
+    <p class="fecha">Reporte actualizado hoy: <span id="today"></span> </p>
     <div class="total-box">
       <p class="total-title">Total positivos</p>
       <p class="total-number"><span id="total-positivos"></span><span class="total-number-sub"> personas</span></p>
+      <br>
+      <p class="total-title">Total fallecidos</p>
+      <p class="total-number"><span id="total-fallecidos"></span><span class="total-number-sub"> personas</span></p>
     </div>
-    
+    <p class="fecha" id="fecha">Gráficas actualizadas al: </p>
 
 </div>
 
@@ -913,12 +916,22 @@ function getData(o) {
 
 <script type="text/javascript">
 
-d3.csv("https://raw.githubusercontent.com/annaabsi/git-scraper-covid19/main/resultados/positivos_por_departamentos.csv", function(data){
+/*d3.csv("https://raw.githubusercontent.com/annaabsi/git-scraper-covid19/main/resultados/positivos_por_departamentos.csv", function(data){
     var totalSum = [d3.sum(data.map(function(d){ return d.METODODX}))];
     var totalPositivos = d3.select("#total-positivos").append("span").text((totalSum[0]).toLocaleString('id-ID'));
+});*/
+
+https://raw.githubusercontent.com/annaabsi/git-scraper-covid19/main/resultados/covid.json
+
+d3.json("https://raw.githubusercontent.com/annaabsi/git-scraper-covid19/main/resultados/covid.json", function (d) {
+    var positivos = parseInt(d["total_confirmados"]);
+    var totalPositivos = d3.select("#total-positivos").append("span").text((positivos).toLocaleString('id-ID'));
+
+    var fallecidos = parseInt(d["total_fallecidos"]);
+    var totalFallecidos = d3.select("#total-fallecidos").append("span").text((fallecidos).toLocaleString('id-ID'));
 });
 
-d3.json("https://raw.githubusercontent.com/annaabsi/git-scraper-covid19/main/resultados/fallecidos.json", function (d) {
+d3.json("https://raw.githubusercontent.com/annaabsi/git-scraper-covid19/main/resultados/fecha_corte_positivos.json", function (d) {
     var dataDate = d["fecha_corte"].toString();
     var dd = dataDate.slice(6,8);
     var mm = dataDate.slice(4,6);
@@ -926,6 +939,13 @@ d3.json("https://raw.githubusercontent.com/annaabsi/git-scraper-covid19/main/res
     hoy = dd + '/' + mm + '/' + yyyy;
     var fechaActualizacion = d3.select("#fecha").append("span").text(hoy);
 });
+
+var today = new Date();
+var d = String(today.getDate()).padStart(2, '0');
+var m = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var y = today.getFullYear();
+today = d + '/' + m + '/' + y;
+document.getElementById('today').textContent = today;
 
 </script>
 
