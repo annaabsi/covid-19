@@ -681,6 +681,9 @@ a {
       <br>
       <p class="total-title">Total fallecidos</p>
       <p class="total-number"><span id="total-fallecidos"></span><span class="total-number-sub"> personas</span></p>
+      <br>
+      <p class="total-title">Altas hospitalarias</p>
+      <p class="total-number"><span id="total-altas"></span><span class="total-number-sub"> personas</span></p>
     </div>
     <p class="fecha" id="fecha">Gráficas actualizadas al: </p>
 
@@ -929,6 +932,9 @@ d3.json("https://raw.githubusercontent.com/annaabsi/git-scraper-covid19/main/res
 
     var fallecidos = parseInt(d["total_fallecidos"]);
     var totalFallecidos = d3.select("#total-fallecidos").append("span").text((fallecidos).toLocaleString('id-ID'));
+
+    var altas = parseInt(d["total_altas"]);
+    var totalAltas = d3.select("#total-altas").append("span").text((altas).toLocaleString('id-ID'));
 });
 
 d3.json("https://raw.githubusercontent.com/annaabsi/git-scraper-covid19/main/resultados/fecha_corte_positivos.json", function (d) {
