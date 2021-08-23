@@ -985,7 +985,7 @@ function getData(o) {
 
 //https://raw.githubusercontent.com/annaabsi/git-scraper-covid19/main/resultados/covid.json
 
-d3.json("https://raw.githubusercontent.com/annaabsi/git-scraper-covid19/main/resultados/covid.json", function (d) {
+d3.json("https://raw.githubusercontent.com/annaabsi/git-scraper-covid19/main/resultados/covid.json").then(function (d) {
     var positivos = parseInt(d["total_confirmados"]);
     var totalPositivos = d3.select("#total-positivos").append("span").text((positivos).toLocaleString('id-ID'));
 
@@ -996,7 +996,7 @@ d3.json("https://raw.githubusercontent.com/annaabsi/git-scraper-covid19/main/res
     var totalAltas = d3.select("#total-altas").append("span").text((altas).toLocaleString('id-ID'));
 });
 
-d3.json("https://raw.githubusercontent.com/annaabsi/git-scraper-covid19/main/resultados/fecha_corte_positivos.json", function (d) {
+d3.json("https://raw.githubusercontent.com/annaabsi/git-scraper-covid19/main/resultados/fecha_corte_positivos.json").then(function (d) {
     var dataDate = d["fecha_corte"].toString();
     var dd = dataDate.slice(6,8);
     var mm = dataDate.slice(4,6);
