@@ -1075,11 +1075,17 @@ document.getElementById('today').textContent = today;
 
           //console.log(casos)
 
+            var fecha_inicio = casos[week - 1]["FECHA_RESULTADO"]
+            var fecha_fin = casos[week]["FECHA_RESULTADO"]
+            function fecha_modificada(fecha) {
+                return fecha.slice(6,8) + '-' + fecha.slice(4,6) + '-' + fecha.slice(0,4)
+            }
+
           document.getElementById("week_a_week").textContent =
             "Semana del " +
-            casos[week - 1]["FECHA_RESULTADO"] +
+            fecha_modificada(fecha_inicio) +
             " al " +
-            casos[week]["FECHA_RESULTADO"];
+            fecha_modificada(fecha_fin)
 
           if (provincia[layerID] !== "") {
             map.setPaintProperty(
