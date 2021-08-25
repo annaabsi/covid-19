@@ -786,7 +786,7 @@ a {
 
     <div class="texto-lr">
         <label id="week_a_week"></label>
-        <input id="slider" type="range" min="1" max="8" step="1" value="8" />
+        <input id="slider" type="range" min="0" max="7" step="1" value="7" />
         <div id="map"></div>
         <p class="note">
           Nota: En la base de datos analizada no se han tomado en cuenta 2237 casos de COVID-19 debido a que las provincias a las que pertenecen están en investigación.
@@ -1080,43 +1080,41 @@ document.getElementById('today').textContent = today;
 
           console.log(casos)
 
+            function fecha_modificada(fecha) {
+                return fecha.slice(8,10) + '-' + fecha.slice(5,7) + '-' + fecha.slice(0,4) }
 
           value_input = document.getElementById("slider").value;
 
-          if(value_input==1){
-              document.getElementById("week_a_week").textContent =
-              "Semana del " +
-              casos[week - 1]["FECHA_RESULTADO"]
-              +
+          console.log(casos, value_input);
+
+          if (value_input == 0) {
+            document.getElementById("week_a_week").textContent =
+              "Semana del 28-06-2021" +
               " hasta el " +
-              casos[week]["FECHA_RESULTADO"];
-          }
+              fecha_modificada(casos[week]["FECHA_RESULTADO"]);
+          } else {
 
-
-          else{
             const date_next = casos[week - 1]["FECHA_RESULTADO"];
-            //date_next.setDate(date_next.getDate() + 1); 
+            //date_next.setDate(date_next.getDate() + 1);
 
-            array_date = date_next.split("-")
-            console.log(date_next.split("-"))
+            array_date = date_next.split("-");
+            console.log(date_next.split("-"));
 
-            if(array_date[2]<9){
-              const day_convert = array_date[2].split('');
-              day_final = day_convert[0] + (parseInt(day_convert[1])+1)
+            if (array_date[2] < 9) {
+              const day_convert = array_date[2].split("");
+              day_final = day_convert[0] + (parseInt(day_convert[1]) + 1);
+            } else if (array_date[2] >= 9) {
+              day_final = parseInt(array_date[2]) + 1;
             }
-            else if (array_date[2]>=9){
-              day_final = (parseInt(array_date[2])+1)
-            }
 
-            dateFormat = array_date[0] + "-" + array_date[1] + "-" + day_final
+            dateFormat = array_date[0] + "-" + array_date[1] + "-" + day_final;
 
             document.getElementById("week_a_week").textContent =
-            "Semana del " +
-            dateFormat
-             +
-            " hasta el " +
-            casos[week]["FECHA_RESULTADO"];
-          }  
+              "Semana del " +
+              fecha_modificada(dateFormat) +
+              " hasta el " +
+              fecha_modificada(casos[week]["FECHA_RESULTADO"]);
+          }
 
           if (provincia[layerID] !== "") {
             map.setPaintProperty(
