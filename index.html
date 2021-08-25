@@ -739,22 +739,6 @@ a {
 
 <div id="content__teaser">
 
-    <div class="texto-lr">
-        <label id="week_a_week"></label>
-        <input id="slider" type="range" min="1" max="8" step="1" value="8" />
-        <div id="map"></div>
-        <p class="note">
-          Nota: En la base de datos analizada no se han tomado en cuenta 2208 casos de COVID-19 debido a que las provincias a las que pertenecen están en investigación.
-        </p>
-        <div id="conclusion" class="note"></div>
-    </div>
-
-    <h3>Tasa de positividad para COVID-19 por provincias</h3>
-
-    <p class="texto-lr">Este especial incluye un mapa que permite seguir el avance de la pandemia a nivel provincial. Se trata de una visualización interactiva del territorio nacional, en la que se muestran los índices de infección en cada una de las 195 provincias. A partir de la población total en ellas, la variable mide el nivel de contagio por cada 100.000 habitantes e incluye una división por sexo.</p>
-
-    <p class="texto-lr">Para ello, además, se ha tomado como dimensión temporal períodos semanales. En la barra superior del mapa, el usuario puede determinar el lapso a mostrar, desde la última semana —el periodo más corto— hasta las últimas ocho —el más extenso—. De ese modo, esta gráfica facilita un acercamiento al avance del virus en su tramo más reciente y a un nivel geográfico más detallado que el mapa regional.</p>
-
     <div class="p-4">
         <ul class="nav nav-pills mb-5" id="pills-tab" role="tablist">
           <li class="nav-item" role="presentation">
@@ -798,6 +782,22 @@ a {
     <p class="texto-lr">La primera presentación del mapa muestra dos variables: el total de casos confirmados y el índice de infección por cada 1.000 habitantes —indicador conveniente para establecer un parámetro equitativo entre densidades poblacionales diferentes—. A partir de las mismas variables, la segunda presentación, también a nivel regional, detalla la situación de los fallecimientos por COVID-19.</p>
 
     <!-- <p class="texto-lr">Las siguientes presentaciones de este mapa toman como punto de origen las mismas variables para medir la situación a nivel provincial. Con ello se percibe un nivel más detallado de la información, útil para elaborar un análisis más integral de la evolución de la pandemia en cada zona del país.</p> -->
+
+    <h3>Tasa de positividad para COVID-19 por provincias</h3>
+
+    <p class="texto-lr">Este especial incluye un mapa que permite seguir el avance de la pandemia a nivel provincial. Se trata de una visualización interactiva del territorio nacional, en la que se muestran los índices de infección en cada una de las 195 provincias. A partir de la población total en ellas, la variable mide el nivel de contagio por cada 100.000 habitantes e incluye una división por sexo.</p>
+
+    <p class="texto-lr">Para ello, además, se ha tomado como dimensión temporal períodos semanales. En la barra superior del mapa, el usuario puede determinar el lapso a mostrar, desde la última semana —el periodo más corto— hasta las últimas ocho —el más extenso—. De ese modo, esta gráfica facilita un acercamiento al avance del virus en su tramo más reciente y a un nivel geográfico más detallado que el mapa regional.</p>
+
+    <div class="texto-lr">
+        <label id="week_a_week"></label>
+        <input id="slider" type="range" min="1" max="8" step="1" value="8" />
+        <div id="map"></div>
+        <p class="note">
+          Nota: En la base de datos analizada no se han tomado en cuenta 2208 casos de COVID-19 debido a que las provincias a las que pertenecen están en investigación.
+        </p>
+        <div id="conclusion" class="note"></div>
+    </div>    
 
     <h3 class="h3-graficas">Casos positivos de COVID-19 por día</h3>
 
@@ -1128,7 +1128,7 @@ document.getElementById('today').textContent = today;
 
             console.log(array_cero, array_max);
             document.getElementById("conclusion").innerHTML =
-              "<p>Provincias con ningun caso de COVID-19 durante la semana seleccionada: " +
+              "<p>Provincias con ningún caso de COVID-19 durante la semana seleccionada: " +
               array_cero.join(", ") +
               "</p><p>Provincias con más de 100 casos de COVID-19 cada 100.000 habitantes durante la semana seleccionada: " +
               array_max.join(", ") +
