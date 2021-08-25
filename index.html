@@ -789,7 +789,7 @@ a {
         <input id="slider" type="range" min="1" max="8" step="1" value="8" />
         <div id="map"></div>
         <p class="note">
-          Nota: En la base de datos analizada no se han tomado en cuenta 2208 casos de COVID-19 debido a que las provincias a las que pertenecen están en investigación.
+          Nota: En la base de datos analizada no se han tomado en cuenta 2237 casos de COVID-19 debido a que las provincias a las que pertenecen están en investigación.
         </p>
         <div id="conclusion" class="note"></div>
     </div>
@@ -1076,20 +1076,47 @@ document.getElementById('today').textContent = today;
             .keyBy("PROVINCIA")
             .mapValues("TOTAL")
             .value();
+            
 
-          //console.log(casos)
+          console.log(casos)
 
-            var fecha_inicio = casos[week - 1]["FECHA_RESULTADO"]
-            var fecha_fin = casos[week]["FECHA_RESULTADO"]
-            function fecha_modificada(fecha) {
-                return fecha.slice(8,10) + '-' + fecha.slice(5,7) + '-' + fecha.slice(0,4)
+
+          value_input = document.getElementById("slider").value;
+
+          if(value_input==1){
+              document.getElementById("week_a_week").textContent =
+              "Semana del " +
+              casos[week - 1]["FECHA_RESULTADO"]
+              +
+              " hasta el " +
+              casos[week]["FECHA_RESULTADO"];
+          }
+
+
+          else{
+            const date_next = casos[week - 1]["FECHA_RESULTADO"];
+            //date_next.setDate(date_next.getDate() + 1); 
+
+            array_date = date_next.split("-")
+            console.log(date_next.split("-"))
+
+            if(array_date[2]<9){
+              const day_convert = array_date[2].split('');
+              day_final = day_convert[0] + (parseInt(day_convert[1])+1)
+            }
+            else if (array_date[2]>=9){
+              day_final = (parseInt(array_date[2])+1)
             }
 
-          document.getElementById("week_a_week").textContent =
+            dateFormat = array_date[0] + "-" + array_date[1] + "-" + day_final
+
+            document.getElementById("week_a_week").textContent =
             "Semana del " +
-            fecha_modificada(fecha_inicio) +
-            " al " +
-            fecha_modificada(fecha_fin)
+            dateFormat
+             +
+            " hasta el " +
+            casos[week]["FECHA_RESULTADO"];
+          }  
 
           if (provincia[layerID] !== "") {
             map.setPaintProperty(
