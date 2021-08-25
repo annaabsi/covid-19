@@ -1278,12 +1278,12 @@ document.getElementById('today').textContent = today;
           }
         });
 
-        filterBy(data, covid_filter, 8);
+        filterBy(data, covid_filter, 7);
 
         document
           .getElementById("slider")
           .addEventListener("input", function (e) {
-            var week = parseInt(e.target.value, 9);
+            var week = parseInt(e.target.value, 8);
             console.log(week);
             filterBy(data, covid_filter, week);
           });
