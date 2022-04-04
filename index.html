@@ -1,726 +1,769 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1"/>
-    <meta name="theme-color" content="#FFF"/>
-    <script src="https://connect.facebook.net/es_LA/sdk.js?hash=6d8f9720f47d5152c43742a0c2e75958&amp;ua=modern_es6"
-            async crossorigin="anonymous"></script>
-    <script id="facebook-jssdk" src="//connect.facebook.net/es_LA/sdk.js"></script>
-    <link rel="canonical" href="https://especiales.larepublica.pe/"/>
-    <meta name="robots" content="index,follow"/>
-    <meta name="googlebot" content="index, follow"/>
-    <meta name="description"
-          content="A partir de marzo de 2020, la expansión del coronavirus provocó una crisis sanitaria sin precedentes. Este especial, elaborado en base a la plataforma de Datos Abiertos del Gobierno, muestra en tiempo real los principales datos de la pandemia y cómo ha evolucionado a lo largo de estos meses."/>
-    <meta property="og:url" content="https://data.larepublica.pe/envivo-casos-confirmados-muertes-coronavirus-peru"/>
-    <meta property="og:title" content="Coronavirus en Perú: así evoluciona la pandemia en el país"/>
-    <meta property="og:image" content="https://cloudfront-us-east-1.images.arcpublishing.com/gruporepublica/GYYTAZRTGEZDQOLDG5STINBYMU.png"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <meta property="fb:pages" content="94604237016"/>
-    <meta property="fb:app_id" content="489210501129201"/>
-    <meta name="twitter:card" content="summary_large_image"/>
-    <meta name="twitter:site" content="@larepublica_pe"/>
-    <meta name="twitter:title" content="Coronavirus en Perú: así evoluciona la pandemia en el país"/>
-    <meta name="twitter:description" content="A partir de marzo de 2020, la expansión del coronavirus provocó una crisis sanitaria sin precedentes. Este especial, elaborado en base a la plataforma de Datos Abiertos del Gobierno, muestra en tiempo real los principales datos de la pandemia y cómo ha evolucionado a lo largo de estos meses."/>
-    <meta name="twitter:image" content="https://cloudfront-us-east-1.images.arcpublishing.com/gruporepublica/GYYTAZRTGEZDQOLDG5STINBYMU.png"/>
-    <meta name="distribution" content="global"/>
-    <meta name="rating" content="general"/>
-    <meta name="lang" content="es_PE"/>
-    <meta name="author" content="Redacción LR"/>
-    <meta name="keywords" content=""/>
-    <title>Coronavirus en Perú: así evoluciona la pandemia en el país</title>
-	<link rel="icon" type="image/png" sizes="32x32" href="https://cdn.larepublica.pe/favicon-32x32.png"/>
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-   
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
-    <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.js"></script>
-    <link
-      href="https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.css"
-      rel="stylesheet"
-    />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1" />
+  <meta name="theme-color" content="#FFF" />
+  <script src="https://connect.facebook.net/es_LA/sdk.js?hash=6d8f9720f47d5152c43742a0c2e75958&amp;ua=modern_es6" async
+    crossorigin="anonymous"></script>
+  <script id="facebook-jssdk" src="//connect.facebook.net/es_LA/sdk.js"></script>
+  <link rel="canonical" href="https://especiales.larepublica.pe/" />
+  <meta name="robots" content="index,follow" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="description"
+    content="A partir de marzo de 2020, la expansión del coronavirus provocó una crisis sanitaria sin precedentes. Este especial, elaborado en base a la plataforma de Datos Abiertos del Gobierno, muestra en tiempo real los principales datos de la pandemia y cómo ha evolucionado a lo largo de estos meses." />
+  <meta property="og:url" content="https://data.larepublica.pe/envivo-casos-confirmados-muertes-coronavirus-peru" />
+  <meta property="og:title" content="Coronavirus en Perú: así evoluciona la pandemia en el país" />
+  <meta property="og:image"
+    content="https://cloudfront-us-east-1.images.arcpublishing.com/gruporepublica/GYYTAZRTGEZDQOLDG5STINBYMU.png" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta property="fb:pages" content="94604237016" />
+  <meta property="fb:app_id" content="489210501129201" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@larepublica_pe" />
+  <meta name="twitter:title" content="Coronavirus en Perú: así evoluciona la pandemia en el país" />
+  <meta name="twitter:description"
+    content="A partir de marzo de 2020, la expansión del coronavirus provocó una crisis sanitaria sin precedentes. Este especial, elaborado en base a la plataforma de Datos Abiertos del Gobierno, muestra en tiempo real los principales datos de la pandemia y cómo ha evolucionado a lo largo de estos meses." />
+  <meta name="twitter:image"
+    content="https://cloudfront-us-east-1.images.arcpublishing.com/gruporepublica/GYYTAZRTGEZDQOLDG5STINBYMU.png" />
+  <meta name="distribution" content="global" />
+  <meta name="rating" content="general" />
+  <meta name="lang" content="es_PE" />
+  <meta name="author" content="Redacción LR" />
+  <meta name="keywords" content="" />
+  <title>Coronavirus en Perú: así evoluciona la pandemia en el país</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.larepublica.pe/favicon-32x32.png" />
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.js"></script>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.css" rel="stylesheet" />
 </head>
+
 <body>
-<style type="text/css">
+  <style type="text/css">
+    @import url(https://fonts.googleapis.com/css2?family=Roboto&display=swap);
 
-@import url(https://fonts.googleapis.com/css2?family=Roboto&display=swap);
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    color: #212529;
-    font-family: sans-serif;
-}
-
-html {
-    -ms-text-size-adjust: 100%;
-    font-size: 62.5%;
-    -webkit-text-size-adjust: 100%;
-    color: #212529;
-}
-
-body, html {
-    overflow-x: hidden;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    margin-top: 100px;
-}
-
-.w-1000 {
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.d-flex {
-    display: flex;
-    align-items: center;
-}
-
-.space-between {
-    justify-content: space-between;
-}
-
-footer {
-    padding: 42px;
-    font-family: sans-serif;
-}
-
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 2;
-    transition: all 0.5s ease;
-    padding: 15px 42px;
-    background: lightgrey;
-    border-bottom: 4px solid #fe0404;
-}
-
-header span {
-    font-size: 0;
-}
-
-header img {
-    width: 140px;
-}
-
-footer span {
-    display: block;
-    text-align: center;
-    color: #545b6a;
-    font-size: 14px;
-    line-height: 1.5;
-}
-
-span [class*="btn-"] {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    margin-left: 10px;
-}
-
-span a.btn-fb {
-    margin-left: 0;
-}
-
-span a.btn-fb, span a.btn-twt, span a.btn-wsp {
-    background-image: url(https://files.larepublica.pe/Larepublica/2020/11/09/iconos-redes-sociales-blanco-1604962294.svg);
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    background-size: 30px;
-}
-
-span a.btn-twt {
-    background-position: 0 -40px;
-    background-repeat: no-repeat;
-}
-
-span a.btn-wsp {
-    background-position: 0 -80px;
-    background-repeat: no-repeat;
-}
-
-h1 {
-    font-size: 5.5rem;
-    line-height: 1.3;
-    margin-bottom: 3rem;
-    font-weight: bold;
-}
-
-h2 {
-    font-size: 2rem;
-    font-weight: 400;
-    line-height: 1.4;
-}
-
-h3 {
-    font-size: 2.2rem;
-    font-family: sans-serif;
-    width: 100%;
-    margin: auto;
-    font-weight: bold;
-}
-
-h4 {
-    font-size: 1.8rem;
-    font-family: sans-serif;
-    width: 100%;
-    margin-top: 50px;
-    max-width: 760px;
-}
-
-b:before {
-    position: relative;
-    width: 40px;
-    height: 4px;
-    background-color: #e30613;
-    content: "";
-    display: block;
-    bottom: 4px;
-}
-
-.texto-lr {
-    font-size: 11pt;
-    font-weight: 400;
-    text-align: left;
-    font-family: Arial, sans-serif;
-}
-
-.texto-lr b {
-    font-size: 14pt;
-}
-
-.texto-lr, h1, h2 {
-    font-family: sans-serif;
-    width: 100%;
-}
-
-h1, h2 {
-    color: #212529;
-    /*text-align: center;*/
-    width: 100%;
-}
-
-h1 {
-    margin: 0 auto;
-    letter-spacing: -1.2px;
-}
-
-.texto-lr {
-    line-height: 1.38;
-    display: block;
-    margin: 0 auto 15px;
-    padding: 5px 15px 10px 15px;
-    max-width: 760px;
-    font-size: 17px;
-}
-
-h1 {
-    font-size: 3em !important;
-    padding: 0 15px;
-}
-
-h2 {
-    padding: 0 15px;
-    font-size: 1.8rem;
-    margin: 20px auto;
-    max-width: 900px;
-}
-
-h3 {
-    margin: auto;
-    padding: 15px;
-    max-width: 760px;
-}
-
-h4 {
-    padding: 0 15px;
-}
-
-@media (max-width: 767px) {
-    .p-10 {
-        padding: 0 10px;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      color: #212529;
+      font-family: sans-serif;
     }
-    header {
-        padding: 15px 20px;
+
+    html {
+      -ms-text-size-adjust: 100%;
+      font-size: 62.5%;
+      -webkit-text-size-adjust: 100%;
+      color: #212529;
+    }
+
+    body,
+    html {
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      margin-top: 100px;
+    }
+
+    .w-1000 {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .d-flex {
+      display: flex;
+      align-items: center;
+    }
+
+    .space-between {
+      justify-content: space-between;
     }
 
     footer {
-        padding: 27.9px 30px;
+      padding: 42px;
+      font-family: sans-serif;
     }
 
-    .w-text {
-        padding: 0 30px 40px;
-        max-width: 100%;
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 2;
+      transition: all 0.5s ease;
+      padding: 15px 42px;
+      background: lightgrey;
+      border-bottom: 4px solid #fe0404;
     }
-    #viz1619104643474 {
-        display: none !important;
 
-    }
-
-}
-
-@media (min-width: 768px) {
-    body {
-        margin-top: 140px;
+    header span {
+      font-size: 0;
     }
 
     header img {
-        width: 160px;
+      width: 140px;
+    }
+
+    footer span {
+      display: block;
+      text-align: center;
+      color: #545b6a;
+      font-size: 14px;
+      line-height: 1.5;
     }
 
     span [class*="btn-"] {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      margin-left: 10px;
+    }
+
+    span a.btn-fb {
+      margin-left: 0;
+    }
+
+    span a.btn-fb,
+    span a.btn-twt,
+    span a.btn-wsp {
+      background-image: url(https://files.larepublica.pe/Larepublica/2020/11/09/iconos-redes-sociales-blanco-1604962294.svg);
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      background-size: 30px;
+    }
+
+    span a.btn-twt {
+      background-position: 0 -40px;
+      background-repeat: no-repeat;
+    }
+
+    span a.btn-wsp {
+      background-position: 0 -80px;
+      background-repeat: no-repeat;
+    }
+
+    h1 {
+      font-size: 5.5rem;
+      line-height: 1.3;
+      margin-bottom: 3rem;
+      font-weight: bold;
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 400;
+      line-height: 1.4;
+    }
+
+    h3 {
+      font-size: 2.2rem;
+      font-family: sans-serif;
+      width: 100%;
+      margin: auto;
+      font-weight: bold;
+    }
+
+    h4 {
+      font-size: 1.8rem;
+      font-family: sans-serif;
+      width: 100%;
+      margin-top: 50px;
+      max-width: 760px;
+    }
+
+    b:before {
+      position: relative;
+      width: 40px;
+      height: 4px;
+      background-color: #e30613;
+      content: "";
+      display: block;
+      bottom: 4px;
+    }
+
+    .texto-lr {
+      font-size: 11pt;
+      font-weight: 400;
+      text-align: left;
+      font-family: Arial, sans-serif;
+    }
+
+    .texto-lr b {
+      font-size: 14pt;
+    }
+
+    .texto-lr,
+    h1,
+    h2 {
+      font-family: sans-serif;
+      width: 100%;
+    }
+
+    h1,
+    h2 {
+      color: #212529;
+      /*text-align: center;*/
+      width: 100%;
+    }
+
+    h1 {
+      margin: 0 auto;
+      letter-spacing: -1.2px;
+    }
+
+    .texto-lr {
+      line-height: 1.38;
+      display: block;
+      margin: 0 auto 15px;
+      padding: 5px 15px 10px 15px;
+      max-width: 760px;
+      font-size: 17px;
+    }
+
+    h1 {
+      font-size: 3em !important;
+      padding: 0 15px;
+    }
+
+    h2 {
+      padding: 0 15px;
+      font-size: 1.8rem;
+      margin: 20px auto;
+      max-width: 900px;
+    }
+
+    h3 {
+      margin: auto;
+      padding: 15px;
+      max-width: 760px;
+    }
+
+    h4 {
+      padding: 0 15px;
+    }
+
+    @media (max-width: 767px) {
+      .p-10 {
+        padding: 0 10px;
+      }
+
+      header {
+        padding: 15px 20px;
+      }
+
+      footer {
+        padding: 27.9px 30px;
+      }
+
+      .w-text {
+        padding: 0 30px 40px;
+        max-width: 100%;
+      }
+
+      #viz1619104643474 {
+        display: none !important;
+
+      }
+
+    }
+
+    @media (min-width: 768px) {
+      body {
+        margin-top: 140px;
+      }
+
+      header img {
+        width: 160px;
+      }
+
+      span [class*="btn-"] {
         display: inline-block;
         width: 40px;
         height: 40px;
         margin-left: 10px;
-    }
+      }
 
-    span a.btn-fb, span a.btn-twt, span a.btn-wsp {
+      span a.btn-fb,
+      span a.btn-twt,
+      span a.btn-wsp {
         background-size: cover;
         background-color: #fff;
         border-radius: 50%;
-    }
+      }
 
-    span a.btn-twt {
+      span a.btn-twt {
         background-position: 0 -40px;
         background-repeat: no-repeat;
-    }
+      }
 
-    span a.btn-wsp {
+      span a.btn-wsp {
         background-position: 0 -80px;
         background-repeat: no-repeat;
+      }
     }
-}    </style>
-<style>        h1 {
-    font-size: 48px;
-}
+  </style>
+  <style>
+    h1 {
+      font-size: 48px;
+    }
 
-.headline {
-    font-weight: 100;
-}
+    .headline {
+      font-weight: 100;
+    }
 
-.container {
-    padding: 45px 15px 15px 15px;
-    margin: 0 auto;
-    max-width: 750px;
-}
+    .container {
+      padding: 45px 15px 15px 15px;
+      margin: 0 auto;
+      max-width: 750px;
+    }
 
-.wrapper {
-    border-left: 5px solid #eaeaea;
-    padding: 0 25px;
-}
+    .wrapper {
+      border-left: 5px solid #eaeaea;
+      padding: 0 25px;
+    }
 
-.item-list {
-    font-family: sans-serif;
-    position: relative;
-}
+    .item-list {
+      font-family: sans-serif;
+      position: relative;
+    }
 
-.item-list::before {
-    content: "";
-    position: absolute;
-    width: 20px;
-    height: 2px;
-    top: 7%;
-    transform: translate(-50%, -50%);
-    left: -4.4%;
-    background-color: #fe2d04;
-    z-index: 1;
-}
-
-.item-list::after {
-    content: "";
-    background-color: #000;
-    border-radius: 50%;
-    height: 7px;
-    left: -12%;
-    position: absolute;
-    top: 7%;
-    transform: translate(-50%, -50%);
-    width: 7px;
-}
-
-.item-list h4 {
-    font-size: 22px;
-    font-weight: 400;
-    margin: 0 0 10px 0;
-}
-
-.item-list p {
-    font-size: 16px;
-    line-height: 1.4;
-    margin: 0 0 30px 0;
-}
-
-.point {
-    background-color: #eaeaea;
-    border: 2px solid #fff;
-    border-radius: 50%;
-    height: 20px;
-    left: -12%;
-    position: absolute;
-    top: 7%;
-    transform: translate(-50%, -50%);
-    width: 20px;
-}
-
-time {
-    font-size: 20px;
-    font-style: italic;
-}
-.flourish-embed {
-    margin: 20px 10px;
-}
-
-@media (min-width: 360px) {
     .item-list::before {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 2px;
+      top: 7%;
+      transform: translate(-50%, -50%);
+      left: -4.4%;
+      background-color: #fe2d04;
+      z-index: 1;
+    }
+
+    .item-list::after {
+      content: "";
+      background-color: #000;
+      border-radius: 50%;
+      height: 7px;
+      left: -12%;
+      position: absolute;
+      top: 7%;
+      transform: translate(-50%, -50%);
+      width: 7px;
+    }
+
+    .item-list h4 {
+      font-size: 22px;
+      font-weight: 400;
+      margin: 0 0 10px 0;
+    }
+
+    .item-list p {
+      font-size: 16px;
+      line-height: 1.4;
+      margin: 0 0 30px 0;
+    }
+
+    .point {
+      background-color: #eaeaea;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      height: 20px;
+      left: -12%;
+      position: absolute;
+      top: 7%;
+      transform: translate(-50%, -50%);
+      width: 20px;
+    }
+
+    time {
+      font-size: 20px;
+      font-style: italic;
+    }
+
+    .flourish-embed {
+      margin: 20px 10px;
+    }
+
+    @media (min-width: 360px) {
+      .item-list::before {
         left: -3.5%;
         top: 9%;
-    }
+      }
 
-    .item-list::after {
+      .item-list::after {
         left: -10%;
         top: 9%;
-    }
+      }
 
-    .point {
+      .point {
         left: -10%;
         top: 9%;
-    }
-}
-
-@media (min-width: 400px) {
-    .item-list::before {
+      }
     }
 
-    .item-list::after {
+    @media (min-width: 400px) {
+      .item-list::before {}
+
+      .item-list::after {
         left: -9%;
-    }
+      }
 
-    .point {
+      .point {
         left: -9%;
-    }
-}
-
-@media (min-width: 410px) {
-    .item-list::before {
+      }
     }
 
-    .item-list::after {
+    @media (min-width: 410px) {
+      .item-list::before {}
+
+      .item-list::after {
         left: -8.5%;
-    }
+      }
 
-    .point {
+      .point {
         left: -8.5%;
+      }
     }
-}
 
-@media (min-width: 768px) {
-    .item-list::before {
+    @media (min-width: 768px) {
+      .item-list::before {
         left: -1.4%;
         top: 15%;
-    }
+      }
 
-    .item-list::after {
+      .item-list::after {
         left: -4%;
         top: 15%;
-    }
+      }
 
-    .point {
+      .point {
         border: 3px solid #fff;
         height: 25px;
         left: -4%;
         top: 15%;
         width: 25px;
-    }
+      }
 
-    .headline {
+      .headline {
         margin: 30px auto 0px;
-    }
-    .flourish-embed {
+      }
+
+      .flourish-embed {
         max-width: 720px;
         margin: 10px auto;
-    }
-    .fecha {
+      }
+
+      .fecha {
         margin: 20px 0 !important;
+      }
     }
-}
 
-@media (min-width: 999px) {
-    .item-list::before {
+    @media (min-width: 999px) {
+      .item-list::before {
         left: -1.2%;
-    }
+      }
 
-    .item-list::after {
+      .item-list::after {
         left: -3.1%;
-    }
+      }
 
-    .point {
+      .point {
         left: -3.1%;
+      }
     }
-}    </style>
-<style>        .container__menu {
-    font-size: 0;
-}
+  </style>
+  <style>
+    .container__menu {
+      font-size: 0;
+    }
 
-.mapa_distribucion {
-    display: block;
-    margin: 0 auto;
-    max-width: 970px;
-    width: 100%;
-}
+    .mapa_distribucion {
+      display: block;
+      margin: 0 auto;
+      max-width: 970px;
+      width: 100%;
+    }
 
-.menu__button {
-    display: inline-block;
-    vertical-align: middle;
-    width: 38px;
-}
-
-.menu__button button {
-    background-color: transparent;
-    border: none;
-    height: 17px;
-    width: 20px;
-}
-
-.menu__button button span {
-    display: block;
-    width: 100%;
-    height: 3px;
-    background-color: #000;
-    margin: 0 0 3px 0;
-    border-radius: 15px;
-}
-
-.menu__button button span:last-child {
-    margin: 0;
-}
-
-.menu__left {
-    display: inline-block;
-    vertical-align: middle;
-    width: calc(100% - 38px); /*width: 160px;*/
-}
-
-.menu__rigth {
-    display: none; /*display: inline-block;*/
-    text-align: right;
-    vertical-align: middle;
-    width: calc(100% - 198px);
-}
-
-.content__menu-mobile {
-    display: none;
-    background-color: #FFF;
-    border-bottom: 1px solid #404040;
-    left: 0;
-    position: absolute;
-    text-align: center;
-    top: 77px;
-    width: 100%;
-}
-
-.content__menu-mobile ul {
-    padding: 0 0 10px 0;
-}
-
-.content__menu-mobile ul li {
-    padding: 10px 0 0 0;
-}
-
-.content__menu-mobile ul li a {
-    font-size: 15px;
-    text-decoration: none;
-}
-
-.active-menu {
-    display: block;
-}
-
-.items__menu {
-    display: none;
-}
-
-.items__menu ul {
-    padding: 10px 0;
-}
-
-.items__menu ul li {
-    display: inline-block;
-    margin: 0 0 0 10px;
-}
-
-.items__menu ul li a {
-    color: #383939;
-    font-size: 14px;
-    text-decoration: none;
-}
-
-@media (min-width: 768px) {
     .menu__button {
-        display: none;
+      display: inline-block;
+      vertical-align: middle;
+      width: 38px;
+    }
+
+    .menu__button button {
+      background-color: transparent;
+      border: none;
+      height: 17px;
+      width: 20px;
+    }
+
+    .menu__button button span {
+      display: block;
+      width: 100%;
+      height: 3px;
+      background-color: #000;
+      margin: 0 0 3px 0;
+      border-radius: 15px;
+    }
+
+    .menu__button button span:last-child {
+      margin: 0;
     }
 
     .menu__left {
-        width: 300px;
+      display: inline-block;
+      vertical-align: middle;
+      width: calc(100% - 38px);
+      /*width: 160px;*/
     }
 
     .menu__rigth {
-        display: inline-block;
-        width: calc(100% - 300px);
+      display: none;
+      /*display: inline-block;*/
+      text-align: right;
+      vertical-align: middle;
+      width: calc(100% - 198px);
     }
 
     .content__menu-mobile {
-        display: none;
+      display: none;
+      background-color: #FFF;
+      border-bottom: 1px solid #404040;
+      left: 0;
+      position: absolute;
+      text-align: center;
+      top: 77px;
+      width: 100%;
+    }
+
+    .content__menu-mobile ul {
+      padding: 0 0 10px 0;
+    }
+
+    .content__menu-mobile ul li {
+      padding: 10px 0 0 0;
+    }
+
+    .content__menu-mobile ul li a {
+      font-size: 15px;
+      text-decoration: none;
+    }
+
+    .active-menu {
+      display: block;
     }
 
     .items__menu {
-        display: block;
+      display: none;
     }
-}
-.total-box {
-    text-align: center;
-    background-color: #eee;
-    padding: 15px;
-    margin: 25px auto;
-    max-width: 450px;
-}
-.total-title {
-    font-size: 28px;
-    font-weight: bold;
-    color: red;
-    line-height: 1;
-}
-.total-number {
-    font-size: 40px;
-    font-weight: bold;
-    line-height: 40px;
-    margin-bottom: 0;
-}
-.total-number-sub {
-    font-size: 20px;
-    font-weight: bold;
-}
-.total-subtitle {
-    margin: 0;
-    font-weight: bold;
-    font-size: 14px;
-}
-.total-box-2 {
-    text-align: center;
-    background-color: #eee;
-    padding: 20px;
-    margin: auto;
-    min-width: 250px;
-}
-.border-right {
-    border-right: 1px solid black;
-}
-.fecha {
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    margin: 10px 0;
-}
-#content__teaser {
-    max-width: 1440px;
-    margin: auto;
-}
-small {
-    margin: auto;
-    display: block;
-    max-width: 440px;
-    margin-top: -15px;
-    margin-bottom: 20px;
-    padding: 0 5px;
-    font-size: 12px;
-    line-height: 1;
-}
-.row span {
-    font-size: 14px;
-}
-a {
-    color: #212529;
-}
-.h3-graficas {
-    max-width: initial;
-    padding-bottom: 0;
-}
-.btn.active, .btn:hover {
-    background-color: #205597 !important;
-}
-.btn-outline-primary {
-    border-color: #205597 !important;
-    color: #205597;
-}
-</style>
-<style>
-      #map {
-        width: 100%;
-        max-width: 700px;
-        margin: 21px auto;
-        min-height: 500px;
+
+    .items__menu ul {
+      padding: 10px 0;
+    }
+
+    .items__menu ul li {
+      display: inline-block;
+      margin: 0 0 0 10px;
+    }
+
+    .items__menu ul li a {
+      color: #383939;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    @media (min-width: 768px) {
+      .menu__button {
+        display: none;
       }
 
-      .mapboxgl-popup-content {
-        min-width: 120px;
-        padding: 7px 0px 4px 0px;
-        text-align: center;
+      .menu__left {
+        width: 300px;
       }
 
-      #slider {
-        position: relative;
-        top: 5px;
+      .menu__rigth {
+        display: inline-block;
+        width: calc(100% - 300px);
       }
 
-      .mapboxgl-popup-content .provincia {
-        margin: 7px 7px 0px 7px;
+      .content__menu-mobile {
+        display: none;
       }
 
-      .mapboxgl-popup-content .totales {
-        margin: 1px 7px 0px 7px;
+      .items__menu {
+        display: block;
       }
+    }
 
-      .total_region {
-        font-size: 10px;
-        font-weight: 700;
-        margin: 0 7px;
-      }
+    .total-box {
+      text-align: center;
+      background-color: #eee;
+      padding: 15px;
+      margin: 25px auto;
+      max-width: 450px;
+    }
 
-      .note {
-        margin: auto auto 1rem auto;
-        max-width: 700px;
-        text-align: left;
-      }
-    </style>
-<!-- <script src="https://d3js.org/d3.v4.js"></script> -->
-<header id="w-header">
+    .total-title {
+      font-size: 28px;
+      font-weight: bold;
+      color: red;
+      line-height: 1;
+    }
+
+    .total-number {
+      font-size: 40px;
+      font-weight: bold;
+      line-height: 40px;
+      margin-bottom: 0;
+    }
+
+    .total-number-sub {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .total-subtitle {
+      margin: 0;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .total-box-2 {
+      text-align: center;
+      background-color: #eee;
+      padding: 20px;
+      margin: auto;
+      min-width: 250px;
+    }
+
+    .border-right {
+      border-right: 1px solid black;
+    }
+
+    .fecha {
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      margin: 10px 0;
+    }
+
+    #content__teaser {
+      max-width: 1440px;
+      margin: auto;
+    }
+
+    small {
+      margin: auto;
+      display: block;
+      max-width: 440px;
+      margin-top: -15px;
+      margin-bottom: 20px;
+      padding: 0 5px;
+      font-size: 12px;
+      line-height: 1;
+    }
+
+    .row span {
+      font-size: 14px;
+    }
+
+    a {
+      color: #212529;
+    }
+
+    .h3-graficas {
+      max-width: initial;
+      padding-bottom: 0;
+    }
+
+    .btn.active,
+    .btn:hover {
+      background-color: #205597 !important;
+    }
+
+    .btn-outline-primary {
+      border-color: #205597 !important;
+      color: #205597;
+    }
+  </style>
+  <style>
+    #map {
+      width: 100%;
+      max-width: 700px;
+      margin: 21px auto;
+      min-height: 500px;
+    }
+
+    .mapboxgl-popup-content {
+      min-width: 120px;
+      padding: 7px 0px 4px 0px;
+      text-align: center;
+    }
+
+    #slider {
+      position: relative;
+      top: 5px;
+    }
+
+    .mapboxgl-popup-content .provincia {
+      margin: 7px 7px 0px 7px;
+    }
+
+    .mapboxgl-popup-content .totales {
+      margin: 1px 7px 0px 7px;
+    }
+
+    .total_region {
+      font-size: 10px;
+      font-weight: 700;
+      margin: 0 7px;
+    }
+
+    .note {
+      margin: auto auto 1rem auto;
+      max-width: 700px;
+      text-align: left;
+    }
+  </style>
+  <!-- <script src="https://d3js.org/d3.v4.js"></script> -->
+  <header id="w-header">
     <div class="container__menu">
-        <!-- <div class="menu__button">                <div class="menu"> <button id="menuMobile"> <span></span> <span></span> <span></span> </button> </div>            </div> -->
-        <div class="menu__left"><a href="https://data.larepublica.pe/" rel="noopener" style="display: inline-block;"
-                                   target="_blank">
-            <picture>
-                <source id="w-sourceLogoDesktop" media="(min-width: 768px)"
-                        srcset="logo.svg"/>
-                <img id="w-sourceLogoMobile" src="logo.svg"/>
-            </picture>
+      <!-- <div class="menu__button">                <div class="menu"> <button id="menuMobile"> <span></span> <span></span> <span></span> </button> </div>            </div> -->
+      <div class="menu__left"><a href="https://data.larepublica.pe/" rel="noopener" style="display: inline-block;"
+          target="_blank">
+          <picture>
+            <source id="w-sourceLogoDesktop" media="(min-width: 768px)" srcset="logo.svg" />
+            <img id="w-sourceLogoMobile" src="logo.svg" />
+          </picture>
         </a></div>
-        <div class="menu__rigth"><span class="items_shared"> <a class="btn-fb btn-Social" data-social="facebook" href="javascript:void(0)" id="id-btn-fb" rel="noopener"> </a> <a class="btn-twt btn-Social" data-social="twitter" href="javascript:void(0)" id="id-btn-twt" rel="noopener"> </a> <a class="btn-wsp" href="https://api.whatsapp.com/send?text=https://data.larepublica.pe/" id="id-btn-wsp" rel="noopener" target="_blank"> </a> </span></div>
+      <div class="menu__rigth"><span class="items_shared"> <a class="btn-fb btn-Social" data-social="facebook"
+            href="javascript:void(0)" id="id-btn-fb" rel="noopener"> </a> <a class="btn-twt btn-Social"
+            data-social="twitter" href="javascript:void(0)" id="id-btn-twt" rel="noopener"> </a> <a class="btn-wsp"
+            href="https://api.whatsapp.com/send?text=https://data.larepublica.pe/" id="id-btn-wsp" rel="noopener"
+            target="_blank"> </a> </span></div>
     </div>
-</header>
+  </header>
 
-<div id="content__main"><h1 style="text-align: center;">Coronavirus en Perú: así evoluciona la pandemia en el país</h1>
+  <div id="content__main">
+    <h1 style="text-align: center;">Coronavirus en Perú: así evoluciona la pandemia en el país</h1>
 
-    <h2 style="text-align: center;">A partir de marzo de 2020, la expansión del coronavirus provocó una crisis sanitaria sin precedentes. Este especial, elaborado en base a la plataforma de Datos Abiertos del Gobierno, muestra en tiempo real los principales datos de la pandemia y cómo ha evolucionado a lo largo de estos meses.</h2>
+    <h2 style="text-align: center;">A partir de marzo de 2020, la expansión del coronavirus provocó una crisis sanitaria
+      sin precedentes. Este especial, elaborado en base a la plataforma de Datos Abiertos del Gobierno, muestra en
+      tiempo real los principales datos de la pandemia y cómo ha evolucionado a lo largo de estos meses.</h2>
     <p class="fecha">Reporte actualizado hoy: <span id="today"></span> </p>
     <div class="total-box">
       <p class="total-title">Total positivos</p>
@@ -732,563 +775,1304 @@ a {
       <p class="total-title">Altas hospitalarias</p>
       <p class="total-number"><span id="total-altas"></span><span class="total-number-sub"> personas</span></p>
     </div>
-    <p class="fecha" id="fecha">Gráficas actualizadas al: </p>
+    <p class="fecha" id="fecha">Las siguientes gráficas están actualizadas al: </p>
 
-</div>
+  </div>
 
-<div id="content__teaser">
+  <div id="content__teaser">
+
+    <h3>La crisis del coronavirus en Perú</h3>
+
+    <p class="texto-lr">A través de varias pestañas, este mapa interactivo permite medir el avance de la pandemia a lo
+      largo del territorio nacional, tanto de manera provincial como regional. Los dos principales indicadores que se
+      han tomado en cuenta son los casos confirmados y las muertes por COVID-19. Para medir el porcentaje de infección y
+      mortalidad en relación a la población de cada zona, se usan datos estimados del Instituto Nacional de Estadística
+      e Informática (INEI) a junio de 2020.</p>
+
+    <p class="texto-lr">La primera presentación del mapa muestra dos variables: el total de casos confirmados y el
+      índice de infección por cada 100.000 habitantes —indicador conveniente para establecer un parámetro equitativo
+      entre densidades poblacionales diferentes—. A partir de las mismas variables, la segunda presentación, también a
+      nivel regional, detalla la situación de los fallecimientos por COVID-19.</p>
 
     <div class="p-4">
-        <ul class="nav nav-pills mb-5" id="pills-tab" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button class="active btn btn-outline-primary btn-lg me-2" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-a" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Positivos</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="btn btn-outline-primary btn-lg me-2" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-b" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Fallecidos</button>
-          </li>
-        </ul>
-        <div class="tab-content" id="pills-tabContent">
-            <!-- <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+      <ul class="nav nav-pills mb-5" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="active btn btn-outline-primary btn-lg me-2" id="pills-home-tab" data-bs-toggle="pill"
+            data-bs-target="#pills-a" type="button" role="tab" aria-controls="pills-home"
+            aria-selected="true">Positivos</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2" id="pills-profile-tab" data-bs-toggle="pill"
+            data-bs-target="#pills-b" type="button" role="tab" aria-controls="pills-profile"
+            aria-selected="false">Fallecidos</button>
+        </li>
+      </ul>
+      <div class="tab-content" id="pills-tabContent">
+        <!-- <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
               <iframe title="Vacunados por día (Copy)" aria-label="Interactive area chart" id="datawrapper-chart-EdyCI" src="https://datawrapper.dwcdn.net/EdyCI/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="600"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();</script>
           </div> -->
-          <div class="tab-pane fade show active" id="pills-a" role="tabpanel" aria-labelledby="pills-home-tab">
-            <div class="row">
-                <div class="col-md-6">
-                    <iframe title="Positivos por región" aria-label="Mapa" id="datawrapper-chart-yeQUb" src="https://datawrapper.dwcdn.net/yeQUb/3/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="593"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();</script>
-                </div>
-                <div class="col-md-6">
-                    <iframe title="Positivos por región" aria-label="table" id="datawrapper-chart-ZsT4c" src="https://datawrapper.dwcdn.net/ZsT4c/2/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="771"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();</script>
-                </div>
+        <div class="tab-pane fade show active" id="pills-a" role="tabpanel" aria-labelledby="pills-home-tab">
+          <div class="row">
+            <div class="col-md-6">
+              <iframe title="Positivos por región" aria-label="Mapa" id="datawrapper-chart-yeQUb"
+                src="https://datawrapper.dwcdn.net/yeQUb/3/" scrolling="no" frameborder="0"
+                style="width: 0; min-width: 100% !important; border: none;" height="593"></iframe>
+              <script
+                type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();</script>
             </div>
-          </div>
-          <div class="tab-pane fade" id="pills-b" role="tabpanel" aria-labelledby="pills-profile-tab">
-              <div class="row">
-                <div class="col-md-6">
-                    <iframe title="Fallecidos por región" aria-label="Mapa" id="datawrapper-chart-oSNJV" src="https://datawrapper.dwcdn.net/oSNJV/3/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="593"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();</script>
-                </div>
-                <div class="col-md-6">
-                    <iframe title="Fallecidos por región" aria-label="table" id="datawrapper-chart-mo1vF" src="https://datawrapper.dwcdn.net/mo1vF/2/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="771"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();</script>
-                </div>
+            <div class="col-md-6">
+              <iframe title="Positivos por región" aria-label="table" id="datawrapper-chart-ZsT4c"
+                src="https://datawrapper.dwcdn.net/ZsT4c/5/" scrolling="no" frameborder="0"
+                style="width: 0; min-width: 100% !important; border: none;" height="789"></iframe>
+              <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+              </script>
             </div>
           </div>
         </div>
+        <div class="tab-pane fade" id="pills-b" role="tabpanel" aria-labelledby="pills-profile-tab">
+          <div class="row">
+            <div class="col-md-6">
+              <iframe title="Fallecidos por región" aria-label="Mapa" id="datawrapper-chart-oSNJV"
+                src="https://datawrapper.dwcdn.net/oSNJV/3/" scrolling="no" frameborder="0"
+                style="width: 0; min-width: 100% !important; border: none;" height="593"></iframe>
+              <script
+                type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();</script>
+            </div>
+            <div class="col-md-6">
+              <iframe title="Fallecidos por región" aria-label="table" id="datawrapper-chart-mo1vF"
+                src="https://datawrapper.dwcdn.net/mo1vF/5/" scrolling="no" frameborder="0"
+                style="width: 0; min-width: 100% !important; border: none;" height="789"></iframe>
+              <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+              </script>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <h3>La crisis del coronavirus por región</h3>
-
-    <p class="texto-lr">A través de varias pestañas, este mapa interactivo permite medir el avance de la pandemia a lo largo del territorio nacional, tanto de manera provincial como regional. Los dos principales indicadores que se han tomado en cuenta son los casos confirmados y las muertes por COVID-19. Para medir el porcentaje de infección y mortalidad en relación a la población de cada zona, se usan datos estimados del Instituto Nacional de Estadística e Informática (INEI) a junio de 2020.</p>
-
-    <p class="texto-lr">La primera presentación del mapa muestra dos variables: el total de casos confirmados y el índice de infección por cada 100.000 habitantes —indicador conveniente para establecer un parámetro equitativo entre densidades poblacionales diferentes—. A partir de las mismas variables, la segunda presentación, también a nivel regional, detalla la situación de los fallecimientos por COVID-19.</p>
-
-    <!-- <p class="texto-lr">Las siguientes presentaciones de este mapa toman como punto de origen las mismas variables para medir la situación a nivel provincial. Con ello se percibe un nivel más detallado de la información, útil para elaborar un análisis más integral de la evolución de la pandemia en cada zona del país.</p> -->
 
     <h3>Tasa de positividad para COVID-19 por provincias</h3>
 
+    <p class="texto-lr">Este especial incluye un mapa que permite seguir el avance de la pandemia a nivel provincial. Se
+      trata de una visualización interactiva del territorio nacional, en la que se muestran los índices de infección en
+      cada una de las 195 provincias. A partir de la población total en ellas, la variable mide el nivel de contagio por
+      cada 100.000 habitantes e incluye una división por sexo.</p>
+
+    <p class="texto-lr">Para ello, además, se ha tomado como dimensión temporal períodos semanales. En la barra superior
+      del mapa, el usuario puede determinar el lapso a mostrar, desde la última semana —el periodo más corto— hasta las
+      últimas ocho —el más extenso—. De ese modo, esta gráfica facilita un acercamiento al avance del virus en su tramo
+      más reciente y a un nivel geográfico más detallado que el mapa regional.</p>
+
     <div class="texto-lr">
-        <label id="week_a_week"></label>
-        <input id="slider" type="range" min="0" max="7" step="1" value="7" />
-        <div id="map"></div>
-        <p class="note">
-          Nota: En la base de datos analizada no se han tomado en cuenta 2220 casos de COVID-19 debido a que las provincias a las que pertenecen están en investigación.
-        </p>
-        <div id="conclusion" class="note"></div>
+      <label id="week_a_week"></label>
+      <input id="slider" type="range" min="0" max="7" step="1" value="7" />
+      <div id="map"></div>
+      <p class="note">
+        Nota: En la base de datos analizada no se han tomado en cuenta 11314 casos de COVID-19 debido a que las provincias a las que pertenecen están en investigación.
+      </p>
+      <div id="conclusion" class="note"></div>
     </div>
 
-    <p class="texto-lr">Este especial incluye un mapa que permite seguir el avance de la pandemia a nivel provincial. Se trata de una visualización interactiva del territorio nacional, en la que se muestran los índices de infección en cada una de las 195 provincias. A partir de la población total en ellas, la variable mide el nivel de contagio por cada 100.000 habitantes e incluye una división por sexo.</p>
+    <h3>Reporte diario y acumulado de casos COVID-19 en Perú</h3>
 
-    <p class="texto-lr">Para ello, además, se ha tomado como dimensión temporal períodos semanales. En la barra superior del mapa, el usuario puede determinar el lapso a mostrar, desde la última semana —el periodo más corto— hasta las últimas ocho —el más extenso—. De ese modo, esta gráfica facilita un acercamiento al avance del virus en su tramo más reciente y a un nivel geográfico más detallado que el mapa regional.</p>
+    <p class="texto-lr">El 6 de marzo de 2020 se reportó el primer caso confirmado de coronavirus en el Perú. Desde
+      entonces, el avance de la pandemia ha sido evaluado por el Ministerio de Salud (Minsa) y reportado a la
+      ciudadanía. Esta gráfica reúne los datos consignados por el Gobierno a partir del primer caso hasta la actualidad,
+      con información detallada del tipo de prueba —rápida, molecular o de antígenos— y los contagios totales
+      registrados cada día. Esto permite un seguimiento minucioso de dos aspectos fundamentales: la variación del
+      impacto del virus en la población y la profundidad de la vigilancia epidemiológica desarrollada por las
+      autoridades.</p>
 
-    <h3 class="h3-graficas">Casos positivos de COVID-19 por día</h3>
+    <p class="texto-lr">Asimismo, la gráfica referida a positivos acumulados por COVID-19 muestra la evolución de los
+      contagios a partir del primer caso. Organizar la información de este modo facilita identificar puntos clave de la
+      crisis sanitaria, como la fecha en que se alcanzó el millón de casos confirmados en el país —18 de diciembre de
+      2020, con 1.001.227—, y también echar un vistazo general a la evolución del virus. En este caso, se ha tomado en
+      cuenta igualmente el tipo de prueba para seguir la aplicación de cada una.</p>
+
+    <h3 class="h3-graficas">Casos positivos diarios de COVID-19 en Perú</h3>
 
     <div class="p-4">
-        <ul class="nav nav-pills mb-5" id="pills-tab" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button class="active btn btn-outline-primary btn-lg me-2" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-c" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Total</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="btn btn-outline-primary btn-lg me-2" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-d" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Por tipo de prueba</button>
-          </li>
-        </ul>
-        <div class="tab-content" id="pills-tabContent">
-            <!-- <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+      <ul class="nav nav-pills mb-5" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="active btn btn-outline-primary btn-lg me-2" id="pills-home-tab" data-bs-toggle="pill"
+            data-bs-target="#pills-c" type="button" role="tab" aria-controls="pills-home"
+            aria-selected="true">Total</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2" id="pills-profile-tab" data-bs-toggle="pill"
+            data-bs-target="#pills-d" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Por
+            tipo de prueba</button>
+        </li>
+      </ul>
+      <div class="tab-content" id="pills-tabContent">
+        <!-- <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
               <iframe title="Vacunados por día (Copy)" aria-label="Interactive area chart" id="datawrapper-chart-EdyCI" src="https://datawrapper.dwcdn.net/EdyCI/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="600"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();</script>
           </div> -->
-          <div class="tab-pane fade show active" id="pills-c" role="tabpanel" aria-labelledby="pills-home-tab">
-            <iframe title="Positivos por día (Total)" aria-label="Interactive area chart" id="datawrapper-chart-EVxBB" src="https://datawrapper.dwcdn.net/EVxBB/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="600"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();</script>
-          </div>
-          <div class="tab-pane fade" id="pills-d" role="tabpanel" aria-labelledby="pills-profile-tab">
-            <iframe title="Positivos por día (Por tipo de prueba)" aria-label="Interactive area chart" id="datawrapper-chart-WtNm2" src="https://datawrapper.dwcdn.net/WtNm2/4/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="600"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();</script>
-          </div>
+        <div class="tab-pane fade show active" id="pills-c" role="tabpanel" aria-labelledby="pills-home-tab">
+          <iframe title="Positivos por día (Total)" aria-label="Interactive area chart" id="datawrapper-chart-EVxBB"
+            src="https://datawrapper.dwcdn.net/EVxBB/5/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="500"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
         </div>
+        <div class="tab-pane fade" id="pills-d" role="tabpanel" aria-labelledby="pills-profile-tab">
+          <iframe title="Positivos por día (Por tipo de prueba)" aria-label="Interactive area chart"
+            id="datawrapper-chart-WtNm2" src="https://datawrapper.dwcdn.net/WtNm2/7/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="500"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+      </div>
     </div>
 
-    <h3 class="h3-graficas">Acumulado de positivos para COVID-19</h3>
+    <h3 class="h3-graficas">Acumulado de positivos para COVID-19 en Perú</h3>
 
     <div class="p-4">
-        <ul class="nav nav-pills mb-5" id="pills-tab" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button class="active btn btn-outline-primary btn-lg me-2" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-e" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Total</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="btn btn-outline-primary btn-lg me-2" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-f" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Por tipo de prueba</button>
-          </li>
-        </ul>
-        <div class="tab-content" id="pills-tabContent">
-            <!-- <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+      <ul class="nav nav-pills mb-5" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="active btn btn-outline-primary btn-lg me-2" id="pills-home-tab" data-bs-toggle="pill"
+            data-bs-target="#pills-e" type="button" role="tab" aria-controls="pills-home"
+            aria-selected="true">Total</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2" id="pills-profile-tab" data-bs-toggle="pill"
+            data-bs-target="#pills-f" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Por
+            tipo de prueba</button>
+        </li>
+      </ul>
+      <div class="tab-content" id="pills-tabContent">
+        <!-- <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
               <iframe title="Vacunados por día (Copy)" aria-label="Interactive area chart" id="datawrapper-chart-EdyCI" src="https://datawrapper.dwcdn.net/EdyCI/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="600"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();</script>
           </div> -->
-          <div class="tab-pane fade show active" id="pills-e" role="tabpanel" aria-labelledby="pills-home-tab">
-            <iframe title="Positivos acumulado (Total)" aria-label="Interactive area chart" id="datawrapper-chart-PpqgQ" src="https://datawrapper.dwcdn.net/PpqgQ/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="500"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();</script>
-          </div>
-          <div class="tab-pane fade" id="pills-f" role="tabpanel" aria-labelledby="pills-profile-tab">
-            <iframe title="Positivos acumulado (Por tipo de prueba)" aria-label="Interactive area chart" id="datawrapper-chart-Fv99S" src="https://datawrapper.dwcdn.net/Fv99S/3/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="500"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();</script>
-          </div>
+        <div class="tab-pane fade show active" id="pills-e" role="tabpanel" aria-labelledby="pills-home-tab">
+          <iframe title="Positivos acumulado (Total)" aria-label="Interactive area chart" id="datawrapper-chart-PpqgQ"
+            src="https://datawrapper.dwcdn.net/PpqgQ/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="500"></iframe>
+          <script
+            type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();</script>
         </div>
+        <div class="tab-pane fade" id="pills-f" role="tabpanel" aria-labelledby="pills-profile-tab">
+          <iframe title="Positivos acumulado (Por tipo de prueba)" aria-label="Interactive area chart"
+            id="datawrapper-chart-Fv99S" src="https://datawrapper.dwcdn.net/Fv99S/3/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="500"></iframe>
+          <script
+            type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();</script>
+        </div>
+      </div>
     </div>
 
-    <h3>Reporte diario y acumulado de casos COVID-19</h3>
-
-    <p class="texto-lr">El 6 de marzo de 2020 se reportó el primer caso confirmado de coronavirus en el Perú. Desde entonces, el avance de la pandemia ha sido evaluado por el Ministerio de Salud (Minsa) y reportado a la ciudadanía. Esta gráfica reúne los datos consignados por el Gobierno a partir del primer caso hasta la actualidad, con información detallada del tipo de prueba —rápida, molecular o de antígenos— y los contagios totales registrados cada día. Esto permite un seguimiento minucioso de dos aspectos fundamentales: la variación del impacto del virus en la población y la profundidad de la vigilancia epidemiológica desarrollada por las autoridades.</p>
-
-    <p class="texto-lr">Asimismo, la gráfica referida a positivos acumulados por COVID-19 muestra la evolución de los contagios a partir del primer caso. Organizar la información de este modo facilita identificar puntos clave de la crisis sanitaria, como la fecha en que se alcanzó el millón de casos confirmados en el país —18 de diciembre de 2020, con 1.001.227—, y también echar un vistazo general a la evolución del virus. En este caso, se ha tomado en cuenta igualmente el tipo de prueba para seguir la aplicación de cada una.</p>
-
-    <h3 class="h3-graficas">Muertes diarias por COVID-19</h3>
+    <h3 class="h3-graficas" id="grafica1">Casos positivos diarios por regiones en Perú</h3>
 
     <div class="p-4">
-        <ul class="nav nav-pills mb-5" id="pills-tab" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button class="active btn btn-outline-primary btn-lg me-2" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-g" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Total</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="btn btn-outline-primary btn-lg me-2" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-h" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Por sexo</button>
-          </li>
-        </ul>
-        <div class="tab-content" id="pills-tabContent">
-            <!-- <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+      <ul class="nav nav-pills mb-5" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="active btn btn-outline-primary btn-lg me-2 mb-2" id="pills-home-tab" data-bs-toggle="pill"
+            data-bs-target="#amazonas-p" type="button" role="tab" aria-controls="pills-home"
+            aria-selected="true">Amazonas</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-profile-tab" data-bs-toggle="pill"
+            data-bs-target="#ancash-p" type="button" role="tab" aria-controls="pills-profile"
+            aria-selected="false">Áncash</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-contact-tab" data-bs-toggle="pill"
+            data-bs-target="#apurimac-p" type="button" role="tab" aria-controls="pills-contact"
+            aria-selected="false">Apurímac</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-home-tab" data-bs-toggle="pill"
+            data-bs-target="#arequipa-p" type="button" role="tab" aria-controls="pills-home"
+            aria-selected="true">Arequipa</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-profile-tab" data-bs-toggle="pill"
+            data-bs-target="#ayacucho-p" type="button" role="tab" aria-controls="pills-profile"
+            aria-selected="false">Ayacucho</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-contact-tab" data-bs-toggle="pill"
+            data-bs-target="#cajamarca-p" type="button" role="tab" aria-controls="pills-contact"
+            aria-selected="false">Cajamarca</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-home-tab" data-bs-toggle="pill"
+            data-bs-target="#callao-p" type="button" role="tab" aria-controls="pills-home"
+            aria-selected="true">Callao</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-profile-tab" data-bs-toggle="pill"
+            data-bs-target="#cusco-p" type="button" role="tab" aria-controls="pills-profile"
+            aria-selected="false">Cusco</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-contact-tab" data-bs-toggle="pill"
+            data-bs-target="#huancavelica-p" type="button" role="tab" aria-controls="pills-contact"
+            aria-selected="false">Huancavelica</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-home-tab" data-bs-toggle="pill"
+            data-bs-target="#huanuco-p" type="button" role="tab" aria-controls="pills-home"
+            aria-selected="true">Huánuco</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-profile-tab" data-bs-toggle="pill"
+            data-bs-target="#ica-p" type="button" role="tab" aria-controls="pills-profile"
+            aria-selected="false">Ica</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-contact-tab" data-bs-toggle="pill"
+            data-bs-target="#junin-p" type="button" role="tab" aria-controls="pills-contact"
+            aria-selected="false">Junín</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-profile-tab" data-bs-toggle="pill"
+            data-bs-target="#lalibertad-p" type="button" role="tab" aria-controls="pills-profile"
+            aria-selected="false">La Libertad</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-contact-tab" data-bs-toggle="pill"
+            data-bs-target="#lambayeque-p" type="button" role="tab" aria-controls="pills-contact"
+            aria-selected="false">Lambayeque</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-home-tab" data-bs-toggle="pill"
+            data-bs-target="#lima-p" type="button" role="tab" aria-controls="pills-home"
+            aria-selected="true">Lima</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-profile-tab" data-bs-toggle="pill"
+            data-bs-target="#loreto-p" type="button" role="tab" aria-controls="pills-profile"
+            aria-selected="false">Loreto</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-contact-tab" data-bs-toggle="pill"
+            data-bs-target="#madrededios-p" type="button" role="tab" aria-controls="pills-contact"
+            aria-selected="false">Madre de Dios</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-contact-tab" data-bs-toggle="pill"
+            data-bs-target="#moquegua-p" type="button" role="tab" aria-controls="pills-contact"
+            aria-selected="false">Moquegua</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-profile-tab" data-bs-toggle="pill"
+            data-bs-target="#pasco-p" type="button" role="tab" aria-controls="pills-profile"
+            aria-selected="false">Pasco</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-contact-tab" data-bs-toggle="pill"
+            data-bs-target="#piura-p" type="button" role="tab" aria-controls="pills-contact"
+            aria-selected="false">Piura</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-home-tab" data-bs-toggle="pill"
+            data-bs-target="#puno-p" type="button" role="tab" aria-controls="pills-home"
+            aria-selected="true">Puno</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-profile-tab" data-bs-toggle="pill"
+            data-bs-target="#sanmartin-p" type="button" role="tab" aria-controls="pills-profile"
+            aria-selected="false">San Martín</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-contact-tab" data-bs-toggle="pill"
+            data-bs-target="#tacna-p" type="button" role="tab" aria-controls="pills-contact"
+            aria-selected="false">Tacna</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-profile-tab" data-bs-toggle="pill"
+            data-bs-target="#tumbes-p" type="button" role="tab" aria-controls="pills-profile"
+            aria-selected="false">Tumbes</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-contact-tab" data-bs-toggle="pill"
+            data-bs-target="#ucayali-p" type="button" role="tab" aria-controls="pills-contact"
+            aria-selected="false">Ucayali</button>
+        </li>
+      </ul>
+      <div class="tab-content" id="pills-tabContent">
+        <!-- <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
               <iframe title="Vacunados por día (Copy)" aria-label="Interactive area chart" id="datawrapper-chart-EdyCI" src="https://datawrapper.dwcdn.net/EdyCI/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="600"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();</script>
           </div> -->
-          <div class="tab-pane fade show active" id="pills-g" role="tabpanel" aria-labelledby="pills-home-tab">
-            <iframe title="Fallecidos por día (Total)" aria-label="Interactive area chart" id="datawrapper-chart-UcriA" src="https://datawrapper.dwcdn.net/UcriA/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="627"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();</script>
-          </div>
-          <div class="tab-pane fade" id="pills-h" role="tabpanel" aria-labelledby="pills-profile-tab">
-            <iframe title="Fallecidos por día (Por sexo)" aria-label="Interactive area chart" id="datawrapper-chart-wlfCy" src="https://datawrapper.dwcdn.net/wlfCy/5/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="627"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();</script>
-          </div>
+        <div class="tab-pane fade show active" id="amazonas-p" role="tabpanel" aria-labelledby="pills-home-tab">
+          <iframe title="Positivos por día (Total) - Amazonas" aria-label="Interactive area chart"
+            id="datawrapper-chart-drzu4" src="https://datawrapper.dwcdn.net/drzu4/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
         </div>
+        <div class="tab-pane fade" id="ancash-p" role="tabpanel" aria-labelledby="pills-profile-tab">
+          <iframe title="Positivos por día (Total) - Áncash" aria-label="Interactive area chart"
+            id="datawrapper-chart-3Sozr" src="https://datawrapper.dwcdn.net/3Sozr/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="apurimac-p" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Positivos por día (Total) - Apurímac" aria-label="Interactive area chart"
+            id="datawrapper-chart-niDJI" src="https://datawrapper.dwcdn.net/niDJI/2/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="arequipa-p" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Positivos por día (Total) - Arequipa" aria-label="Interactive area chart"
+            id="datawrapper-chart-nZf21" src="https://datawrapper.dwcdn.net/nZf21/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="ayacucho-p" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Positivos por día (Total) - Ayacucho" aria-label="Interactive area chart"
+            id="datawrapper-chart-Mwep6" src="https://datawrapper.dwcdn.net/Mwep6/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="cajamarca-p" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Positivos por día (Total) - Cajamarca" aria-label="Interactive area chart"
+            id="datawrapper-chart-EhIxr" src="https://datawrapper.dwcdn.net/EhIxr/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="callao-p" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Positivos por día (Total) - Callao" aria-label="Interactive area chart"
+            id="datawrapper-chart-hrfFI" src="https://datawrapper.dwcdn.net/hrfFI/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="cusco-p" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Positivos por día (Total) - Cusco" aria-label="Interactive area chart"
+            id="datawrapper-chart-1R6V7" src="https://datawrapper.dwcdn.net/1R6V7/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="huancavelica-p" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Positivos por día (Total) - Huancavelica" aria-label="Interactive area chart"
+            id="datawrapper-chart-HFZVy" src="https://datawrapper.dwcdn.net/HFZVy/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="huanuco-p" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Positivos por día (Total) - Huánuco" aria-label="Interactive area chart"
+            id="datawrapper-chart-hRXSC" src="https://datawrapper.dwcdn.net/hRXSC/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="ica-p" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Positivos por día (Total) - Ica" aria-label="Interactive area chart"
+            id="datawrapper-chart-iTgC8" src="https://datawrapper.dwcdn.net/iTgC8/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="junin-p" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Positivos por día (Total) - Junín" aria-label="Interactive area chart"
+            id="datawrapper-chart-GqwG2" src="https://datawrapper.dwcdn.net/GqwG2/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="lalibertad-p" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Positivos por día (Total) - La Libertad" aria-label="Interactive area chart"
+            id="datawrapper-chart-FqoZ3" src="https://datawrapper.dwcdn.net/FqoZ3/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="lambayeque-p" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Positivos por día (Total) - Lambayeque" aria-label="Interactive area chart"
+            id="datawrapper-chart-jjugr" src="https://datawrapper.dwcdn.net/jjugr/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="lima-p" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Positivos por día (Total) - Lima" aria-label="Interactive area chart"
+            id="datawrapper-chart-Riw7j" src="https://datawrapper.dwcdn.net/Riw7j/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="loreto-p" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Positivos por día (Total) - Loreto" aria-label="Interactive area chart"
+            id="datawrapper-chart-aDKxU" src="https://datawrapper.dwcdn.net/aDKxU/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="madrededios-p" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Positivos por día (Total) - Madre de Dios" aria-label="Interactive area chart"
+            id="datawrapper-chart-QWBAx" src="https://datawrapper.dwcdn.net/QWBAx/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="moquegua-p" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Positivos por día (Total) - Moquegua" aria-label="Interactive area chart"
+            id="datawrapper-chart-N305m" src="https://datawrapper.dwcdn.net/N305m/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="pasco-p" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Positivos por día (Total) - Pasco" aria-label="Interactive area chart"
+            id="datawrapper-chart-efrxG" src="https://datawrapper.dwcdn.net/efrxG/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="piura-p" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Positivos por día (Total) - Piura" aria-label="Interactive area chart"
+            id="datawrapper-chart-Q61oJ" src="https://datawrapper.dwcdn.net/Q61oJ/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="puno-p" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Positivos por día (Total) - Puno" aria-label="Interactive area chart"
+            id="datawrapper-chart-0evbV" src="https://datawrapper.dwcdn.net/0evbV/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="sanmartin-p" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Positivos por día (Total) - San Martín" aria-label="Interactive area chart"
+            id="datawrapper-chart-V6voM" src="https://datawrapper.dwcdn.net/V6voM/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="tacna-p" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Positivos por día (Total) - Tacna" aria-label="Interactive area chart"
+            id="datawrapper-chart-tqi3Z" src="https://datawrapper.dwcdn.net/tqi3Z/3/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="tumbes-p" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Positivos por día (Total) - Tumbes" aria-label="Interactive area chart"
+            id="datawrapper-chart-I5U6y" src="https://datawrapper.dwcdn.net/I5U6y/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="ucayali-p" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Positivos por día (Total) - Ucayali" aria-label="Interactive area chart"
+            id="datawrapper-chart-viQ0s" src="https://datawrapper.dwcdn.net/viQ0s/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+      </div>
     </div>
 
-    <h3 class="h3-graficas">Acumulado de muertes por COVID-19</h3>
+    <h3>Reporte diario y acumulado de muertes por COVID-19 en Perú</h3>
+
+    <p class="texto-lr">Desde que se produjo la primera muerte a causa del coronavirus en el Perú, el 3 de marzo de
+      2020, el rastreo del número de fallecimientos ha sido una de las labores más cuestionadas y complejas de realizar.
+      En esta gráfica, se utiliza el registro oficial del MINSA —cuyo más reciente sinceramiento se reportó el 31 de
+      mayo de 2021, con lo que se sumaron 180.000 muertes— para analizar la evolución de la mortalidad ocasionada por la
+      pandemia.</p>
+
+    <p class="texto-lr">Para ello, se han dispuesto dos gráficas que, del mismo modo que la presentación de los casos
+      confirmados, miden el avance diario y el acumulado total respectivamente. Sin embargo, a fin de permitir un
+      análisis más completo de la evolución de la mortalidad, aquí se agrega la variable de sexo.</p>
+
+    <p class="texto-lr">Esta gráfica interactiva permite filtrar la información, mediante botones seleccionables, las
+      variables de acuerdo a la elección del usuario.</p>
+
+    <h3 class="h3-graficas">Muertes diarias por COVID-19 en Perú</h3>
 
     <div class="p-4">
-        <ul class="nav nav-pills mb-5" id="pills-tab" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button class="active btn btn-outline-primary btn-lg me-2" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-i" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Total</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="btn btn-outline-primary btn-lg me-2" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-j" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Por sexo</button>
-          </li>
-        </ul>
-        <div class="tab-content" id="pills-tabContent">
-            <!-- <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+      <ul class="nav nav-pills mb-5" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="active btn btn-outline-primary btn-lg me-2" id="pills-home-tab" data-bs-toggle="pill"
+            data-bs-target="#pills-g" type="button" role="tab" aria-controls="pills-home"
+            aria-selected="true">Total</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2" id="pills-profile-tab" data-bs-toggle="pill"
+            data-bs-target="#pills-h" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Por
+            sexo</button>
+        </li>
+      </ul>
+      <div class="tab-content" id="pills-tabContent">
+        <!-- <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
               <iframe title="Vacunados por día (Copy)" aria-label="Interactive area chart" id="datawrapper-chart-EdyCI" src="https://datawrapper.dwcdn.net/EdyCI/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="600"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();</script>
           </div> -->
-          <div class="tab-pane fade show active" id="pills-i" role="tabpanel" aria-labelledby="pills-home-tab">
-            <iframe title="Fallecidos acumulado (Total)" aria-label="Interactive area chart" id="datawrapper-chart-oBipB" src="https://datawrapper.dwcdn.net/oBipB/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="500"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();</script>
-          </div>
-          <div class="tab-pane fade" id="pills-j" role="tabpanel" aria-labelledby="pills-profile-tab">
-            <iframe title="Fallecidos acumulado (Por sexo)" aria-label="Interactive area chart" id="datawrapper-chart-YOY5S" src="https://datawrapper.dwcdn.net/YOY5S/3/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="500"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();</script>
-          </div>
+        <div class="tab-pane fade show active" id="pills-g" role="tabpanel" aria-labelledby="pills-home-tab">
+          <iframe title="Fallecidos por día (Total)" aria-label="Interactive area chart" id="datawrapper-chart-UcriA"
+            src="https://datawrapper.dwcdn.net/UcriA/3/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="500"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
         </div>
+        <div class="tab-pane fade" id="pills-h" role="tabpanel" aria-labelledby="pills-profile-tab">
+          <iframe title="Fallecidos por día (Por sexo)" aria-label="Interactive area chart" id="datawrapper-chart-wlfCy"
+            src="https://datawrapper.dwcdn.net/wlfCy/7/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="500"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+      </div>
     </div>
 
-    <h3>Reporte diario y acumulado de muertes por COVID-19</h3>
+    <h3 class="h3-graficas">Acumulado de muertes por COVID-19 en Perú</h3>
 
-    <p class="texto-lr">Desde que se produjo la primera muerte a causa del coronavirus en el Perú, el 3 de marzo de 2020, el rastreo del número de fallecimientos ha sido una de las labores más cuestionadas y complejas de realizar. En esta gráfica, se utiliza el registro oficial del MINSA —cuyo más reciente sinceramiento se reportó el 31 de mayo de 2021, con lo que se sumaron 180.000 muertes— para analizar la evolución de la mortalidad ocasionada por la pandemia.</p>
+    <div class="p-4">
+      <ul class="nav nav-pills mb-5" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="active btn btn-outline-primary btn-lg me-2" id="pills-home-tab" data-bs-toggle="pill"
+            data-bs-target="#pills-i" type="button" role="tab" aria-controls="pills-home"
+            aria-selected="true">Total</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2" id="pills-profile-tab" data-bs-toggle="pill"
+            data-bs-target="#pills-j" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Por
+            sexo</button>
+        </li>
+      </ul>
+      <div class="tab-content" id="pills-tabContent">
+        <!-- <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+              <iframe title="Vacunados por día (Copy)" aria-label="Interactive area chart" id="datawrapper-chart-EdyCI" src="https://datawrapper.dwcdn.net/EdyCI/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="600"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();</script>
+          </div> -->
+        <div class="tab-pane fade show active" id="pills-i" role="tabpanel" aria-labelledby="pills-home-tab">
+          <iframe title="Fallecidos acumulado (Total)" aria-label="Interactive area chart" id="datawrapper-chart-oBipB"
+            src="https://datawrapper.dwcdn.net/oBipB/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="500"></iframe>
+          <script
+            type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();</script>
+        </div>
+        <div class="tab-pane fade" id="pills-j" role="tabpanel" aria-labelledby="pills-profile-tab">
+          <iframe title="Fallecidos acumulado (Por sexo)" aria-label="Interactive area chart"
+            id="datawrapper-chart-YOY5S" src="https://datawrapper.dwcdn.net/YOY5S/3/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="500"></iframe>
+          <script
+            type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();</script>
+        </div>
+      </div>
+    </div>
 
-    <p class="texto-lr">Para ello, se han dispuesto dos gráficas que, del mismo modo que la presentación de los casos confirmados, miden el avance diario y el acumulado total respectivamente. Sin embargo, a fin de permitir un análisis más completo de la evolución de la mortalidad, aquí se agrega la variable de sexo.</p>
+    <h3 class="h3-graficas" id="grafica1">Muertes diarias por regiones en Perú</h3>
 
-    <p class="texto-lr">Esta gráfica interactiva permite filtrar la información, mediante botones seleccionables, las variables de acuerdo a la elección del usuario.</p>
+    <div class="p-4">
+      <ul class="nav nav-pills mb-5" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="active btn btn-outline-primary btn-lg me-2 mb-2" id="pills-home-tab" data-bs-toggle="pill"
+            data-bs-target="#amazonas-f" type="button" role="tab" aria-controls="pills-home"
+            aria-selected="true">Amazonas</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-profile-tab" data-bs-toggle="pill"
+            data-bs-target="#ancash-f" type="button" role="tab" aria-controls="pills-profile"
+            aria-selected="false">Áncash</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-contact-tab" data-bs-toggle="pill"
+            data-bs-target="#apurimac-f" type="button" role="tab" aria-controls="pills-contact"
+            aria-selected="false">Apurímac</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-home-tab" data-bs-toggle="pill"
+            data-bs-target="#arequipa-f" type="button" role="tab" aria-controls="pills-home"
+            aria-selected="true">Arequipa</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-profile-tab" data-bs-toggle="pill"
+            data-bs-target="#ayacucho-f" type="button" role="tab" aria-controls="pills-profile"
+            aria-selected="false">Ayacucho</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-contact-tab" data-bs-toggle="pill"
+            data-bs-target="#cajamarca-f" type="button" role="tab" aria-controls="pills-contact"
+            aria-selected="false">Cajamarca</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-home-tab" data-bs-toggle="pill"
+            data-bs-target="#callao-f" type="button" role="tab" aria-controls="pills-home"
+            aria-selected="true">Callao</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-profile-tab" data-bs-toggle="pill"
+            data-bs-target="#cusco-f" type="button" role="tab" aria-controls="pills-profile"
+            aria-selected="false">Cusco</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-contact-tab" data-bs-toggle="pill"
+            data-bs-target="#huancavelica-f" type="button" role="tab" aria-controls="pills-contact"
+            aria-selected="false">Huancavelica</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-home-tab" data-bs-toggle="pill"
+            data-bs-target="#huanuco-f" type="button" role="tab" aria-controls="pills-home"
+            aria-selected="true">Huánuco</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-profile-tab" data-bs-toggle="pill"
+            data-bs-target="#ica-f" type="button" role="tab" aria-controls="pills-profile"
+            aria-selected="false">Ica</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-contact-tab" data-bs-toggle="pill"
+            data-bs-target="#junin-f" type="button" role="tab" aria-controls="pills-contact"
+            aria-selected="false">Junín</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-profile-tab" data-bs-toggle="pill"
+            data-bs-target="#lalibertad-f" type="button" role="tab" aria-controls="pills-profile"
+            aria-selected="false">La Libertad</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-contact-tab" data-bs-toggle="pill"
+            data-bs-target="#lambayeque-f" type="button" role="tab" aria-controls="pills-contact"
+            aria-selected="false">Lambayeque</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-home-tab" data-bs-toggle="pill"
+            data-bs-target="#lima-f" type="button" role="tab" aria-controls="pills-home"
+            aria-selected="true">Lima</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-profile-tab" data-bs-toggle="pill"
+            data-bs-target="#loreto-f" type="button" role="tab" aria-controls="pills-profile"
+            aria-selected="false">Loreto</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-contact-tab" data-bs-toggle="pill"
+            data-bs-target="#madrededios-f" type="button" role="tab" aria-controls="pills-contact"
+            aria-selected="false">Madre de Dios</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-contact-tab" data-bs-toggle="pill"
+            data-bs-target="#moquegua-f" type="button" role="tab" aria-controls="pills-contact"
+            aria-selected="false">Moquegua</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-profile-tab" data-bs-toggle="pill"
+            data-bs-target="#pasco-f" type="button" role="tab" aria-controls="pills-profile"
+            aria-selected="false">Pasco</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-contact-tab" data-bs-toggle="pill"
+            data-bs-target="#piura-f" type="button" role="tab" aria-controls="pills-contact"
+            aria-selected="false">Piura</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-home-tab" data-bs-toggle="pill"
+            data-bs-target="#puno-f" type="button" role="tab" aria-controls="pills-home"
+            aria-selected="true">Puno</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-profile-tab" data-bs-toggle="pill"
+            data-bs-target="#sanmartin-f" type="button" role="tab" aria-controls="pills-profile"
+            aria-selected="false">San Martín</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-contact-tab" data-bs-toggle="pill"
+            data-bs-target="#tacna-f" type="button" role="tab" aria-controls="pills-contact"
+            aria-selected="false">Tacna</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-profile-tab" data-bs-toggle="pill"
+            data-bs-target="#tumbes-f" type="button" role="tab" aria-controls="pills-profile"
+            aria-selected="false">Tumbes</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="btn btn-outline-primary btn-lg me-2 mb-2" id="pills-contact-tab" data-bs-toggle="pill"
+            data-bs-target="#ucayali-f" type="button" role="tab" aria-controls="pills-contact"
+            aria-selected="false">Ucayali</button>
+        </li>
+      </ul>
+      <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="amazonas-f" role="tabpanel" aria-labelledby="pills-home-tab">
+          <iframe title="Fallecidos por día (Total) - Amazonas" aria-label="Interactive area chart"
+            id="datawrapper-chart-vZKCl" src="https://datawrapper.dwcdn.net/vZKCl/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="ancash-f" role="tabpanel" aria-labelledby="pills-profile-tab">
+          <iframe title="Fallecidos por día (Total) - Áncash" aria-label="Interactive area chart"
+            id="datawrapper-chart-yj3ov" src="https://datawrapper.dwcdn.net/yj3ov/2/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="apurimac-f" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Fallecidos por día (Total) - Apurímac" aria-label="Interactive area chart"
+            id="datawrapper-chart-O8vSp" src="https://datawrapper.dwcdn.net/O8vSp/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="arequipa-f" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Fallecidos por día (Total) - Arequipa" aria-label="Interactive area chart"
+            id="datawrapper-chart-Zq5yh" src="https://datawrapper.dwcdn.net/Zq5yh/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="ayacucho-f" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Fallecidos por día (Total) - Ayacucho" aria-label="Interactive area chart"
+            id="datawrapper-chart-DtoS0" src="https://datawrapper.dwcdn.net/DtoS0/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="cajamarca-f" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Fallecidos por día (Total) - Cajamarca" aria-label="Interactive area chart"
+            id="datawrapper-chart-2BjW7" src="https://datawrapper.dwcdn.net/2BjW7/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="callao-f" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Fallecidos por día (Total) - Callao" aria-label="Interactive area chart"
+            id="datawrapper-chart-quwuj" src="https://datawrapper.dwcdn.net/quwuj/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="cusco-f" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Fallecidos por día (Total) - Cusco" aria-label="Interactive area chart"
+            id="datawrapper-chart-NeLTM" src="https://datawrapper.dwcdn.net/NeLTM/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="huancavelica-f" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Fallecidos por día (Total) - Huancavelica" aria-label="Interactive area chart"
+            id="datawrapper-chart-uxppm" src="https://datawrapper.dwcdn.net/uxppm/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="huanuco-f" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Fallecidos por día (Total) - Huánuco" aria-label="Interactive area chart"
+            id="datawrapper-chart-62y9h" src="https://datawrapper.dwcdn.net/62y9h/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="ica-f" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Fallecidos por día (Total) - Ica" aria-label="Interactive area chart"
+            id="datawrapper-chart-3GKWC" src="https://datawrapper.dwcdn.net/3GKWC/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="junin-f" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Fallecidos por día (Total) - Junín" aria-label="Interactive area chart"
+            id="datawrapper-chart-4ET4i" src="https://datawrapper.dwcdn.net/4ET4i/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="lalibertad-f" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Fallecidos por día (Total) - La Libertad" aria-label="Interactive area chart"
+            id="datawrapper-chart-wfpAk" src="https://datawrapper.dwcdn.net/wfpAk/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="lambayeque-f" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Fallecidos por día (Total) - Lambayeque" aria-label="Interactive area chart"
+            id="datawrapper-chart-TY0IA" src="https://datawrapper.dwcdn.net/TY0IA/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="lima-f" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Fallecidos por día (Total) - Lima" aria-label="Interactive area chart"
+            id="datawrapper-chart-W3lzA" src="https://datawrapper.dwcdn.net/W3lzA/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="loreto-f" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Fallecidos por día (Total) - Loreto" aria-label="Interactive area chart"
+            id="datawrapper-chart-hg2Km" src="https://datawrapper.dwcdn.net/hg2Km/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="madrededios-f" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Fallecidos por día (Total) - Madre de Dios" aria-label="Interactive area chart"
+            id="datawrapper-chart-UooTi" src="https://datawrapper.dwcdn.net/UooTi/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="moquegua-f" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Fallecidos por día (Total) - Moquegua" aria-label="Interactive area chart"
+            id="datawrapper-chart-vw6DZ" src="https://datawrapper.dwcdn.net/vw6DZ/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="pasco-f" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Fallecidos por día (Total) - Pasco" aria-label="Interactive area chart"
+            id="datawrapper-chart-5hs5o" src="https://datawrapper.dwcdn.net/5hs5o/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="piura-f" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Fallecidos por día (Total) - Piura" aria-label="Interactive area chart"
+            id="datawrapper-chart-ds7xn" src="https://datawrapper.dwcdn.net/ds7xn/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="puno-f" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Fallecidos por día (Total) - Puno" aria-label="Interactive area chart"
+            id="datawrapper-chart-4OrJd" src="https://datawrapper.dwcdn.net/4OrJd/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="sanmartin-f" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Fallecidos por día (Total) - San Martín" aria-label="Interactive area chart"
+            id="datawrapper-chart-5DC5S" src="https://datawrapper.dwcdn.net/5DC5S/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="tacna-f" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Fallecidos por día (Total) - Tacna" aria-label="Interactive area chart"
+            id="datawrapper-chart-h95jV" src="https://datawrapper.dwcdn.net/h95jV/3/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="tumbes-f" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Fallecidos por día (Total) - Tumbes" aria-label="Interactive area chart"
+            id="datawrapper-chart-CMjaO" src="https://datawrapper.dwcdn.net/CMjaO/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+        <div class="tab-pane fade" id="ucayali-f" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <iframe title="Fallecidos por día (Total) - Ucayali" aria-label="Interactive area chart"
+            id="datawrapper-chart-aiqPw" src="https://datawrapper.dwcdn.net/aiqPw/1/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+          <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (e) { if (void 0 !== e.data["datawrapper-height"]) { var t = document.querySelectorAll("iframe"); for (var a in e.data["datawrapper-height"]) for (var r = 0; r < t.length; r++) { if (t[r].contentWindow === e.source) t[r].style.height = e.data["datawrapper-height"][a] + "px" } } })) }();
+          </script>
+        </div>
+      </div>
+    </div>
 
     <h4 style="font-style: italic; text-align: right; font-weight: normal;"></h4>
-    <p class="texto-lr"><b>Datos:</b><br><a href="https://github.com/annaabsi/git-scraper-covid19">Web Scraping - Anna Absi, Pablo Díaz, Génesis León</a><br><a href="https://www.datosabiertos.gob.pe/dataset/casos-positivos-por-covid-19-ministerio-de-salud-minsa">Casos positivos por COVID-19 - MINSA</a><br><a href="https://www.datosabiertos.gob.pe/dataset/fallecidos-por-covid-19-ministerio-de-salud-minsa">Fallecidos por COVID-19 - MINSA</a><br></p>
+    <p class="texto-lr"><b>Datos:</b><br><a href="https://github.com/annaabsi/git-scraper-covid19">Web Scraping - Anna
+        Absi, Pablo Díaz, Génesis León</a><br><a
+        href="https://www.datosabiertos.gob.pe/dataset/casos-positivos-por-covid-19-ministerio-de-salud-minsa">Casos
+        positivos por COVID-19 - MINSA</a><br><a
+        href="https://www.datosabiertos.gob.pe/dataset/fallecidos-por-covid-19-ministerio-de-salud-minsa">Fallecidos por
+        COVID-19 - MINSA</a><br></p>
 
-</div>
-<br>
-<footer style="background-color: #f0f0f0">
+  </div>
+  <br>
+  <footer style="background-color: #f0f0f0">
     <div class="w-1000">
-    	<span><strong>Texto:</strong> Alexis Revollé</span>
-    	<span><strong>Desarrollo Web:</strong> Anna Absi y Génesis León</span>
-    	<span><strong>Edición general:</strong> Alonso Marín Jiménez</span>
-		<br/>
-        <span>© Grupo La República </span>
-        <span>Todos los derechos reservados.</span>
+      <span><strong>Texto:</strong> Alexis Revollé</span>
+      <span><strong>Desarrollo Web:</strong> Anna Absi y Génesis León</span>
+      <span><strong>Edición general:</strong> Alonso Marín Jiménez</span>
+      <br />
+      <span>© Grupo La República </span>
+      <span>Todos los derechos reservados.</span>
     </div>
-</footer>
-<script defer src="https://www.googletagmanager.com/gtag/js?id=UA-6536106-1"></script>
-<script type="text/javascript" defer>            function gtag() {
-    dataLayer.push(arguments);
-}
-
-(window.dataLayer = window.dataLayer || []), gtag("js", new Date()), gtag("config", "UA-6536106-1");        </script>
-<script>            let btnSocial = document.querySelectorAll(".btn-Social");
-const rss = (nameSocial) => {
-    let link = null;
-    switch (nameSocial) {
-        case "facebook":
-            link = "https://www.facebook.com/sharer/sharer.php?u=";
-            break;
-        case "twitter":
-            link = "https://twitter.com/share?url=";
-            break;
-        default:
-            break;
+  </footer>
+  <script defer src="https://www.googletagmanager.com/gtag/js?id=UA-6536106-1"></script>
+  <script type="text/javascript" defer>            function gtag() {
+      dataLayer.push(arguments);
     }
-    let url = window.location.href;
-    let text = document.querySelector('meta[name="description"]').content;
-    document.getElementsByClassName("btn-wsp")[0].setAttribute("href", "https://api.whatsapp.com/send?text=" + text + " " + url);
-    const popupText = nameSocial == "twitter" ? "&text=" + text : "";
-    window.open(link + url + popupText, nameSocial + "-popup", "height=350,width=600");
-};
-Object.keys(btnSocial).map((item) => {
-    btnSocial[item].onclick = function () {
+
+    (window.dataLayer = window.dataLayer || []), gtag("js", new Date()), gtag("config", "UA-6536106-1");        </script>
+  <script>            let btnSocial = document.querySelectorAll(".btn-Social");
+    const rss = (nameSocial) => {
+      let link = null;
+      switch (nameSocial) {
+        case "facebook":
+          link = "https://www.facebook.com/sharer/sharer.php?u=";
+          break;
+        case "twitter":
+          link = "https://twitter.com/share?url=";
+          break;
+        default:
+          break;
+      }
+      let url = window.location.href;
+      let text = document.querySelector('meta[name="description"]').content;
+      document.getElementsByClassName("btn-wsp")[0].setAttribute("href", "https://api.whatsapp.com/send?text=" + text + " " + url);
+      const popupText = nameSocial == "twitter" ? "&text=" + text : "";
+      window.open(link + url + popupText, nameSocial + "-popup", "height=350,width=600");
+    };
+    Object.keys(btnSocial).map((item) => {
+      btnSocial[item].onclick = function () {
         let nameSocial = btnSocial[item].getAttribute("data-social");
         rss(nameSocial);
-    };
-});        </script>
-<script>            var h = document.getElementById("w-header"), s = document.getElementById("w-section"),
-    sourceLogoMobile = document.getElementById("w-sourceLogoMobile"),
-    sourceLogoDesktop = document.getElementById("w-sourceLogoDesktop"),
-    socialMediaWhite = "https://s3.amazonaws.com/glr-demo/2020/04/13/icons-white-1586816732.svg",
-    socialMediaColor = "https://s3.amazonaws.com/glr-demo/2020/04/13/icons-color-1586815843.svg",
-    srcsetImgWhite = "logo.svg",
-    srcImgWhite = "logo.svg",
-    srcsetImgRed = "logo.svg",
-    srcImgRed = "logo.svg";
+      };
+    });        </script>
+  <script>            var h = document.getElementById("w-header"), s = document.getElementById("w-section"),
+      sourceLogoMobile = document.getElementById("w-sourceLogoMobile"),
+      sourceLogoDesktop = document.getElementById("w-sourceLogoDesktop"),
+      socialMediaWhite = "https://s3.amazonaws.com/glr-demo/2020/04/13/icons-white-1586816732.svg",
+      socialMediaColor = "https://s3.amazonaws.com/glr-demo/2020/04/13/icons-color-1586815843.svg",
+      srcsetImgWhite = "logo.svg",
+      srcImgWhite = "logo.svg",
+      srcsetImgRed = "logo.svg",
+      srcImgRed = "logo.svg";
 
-function getData(o) {
-    fetch(o).then(function (response) {
+    function getData(o) {
+      fetch(o).then(function (response) {
         return response.json();
-    }).then(function (myJson) {
+      }).then(function (myJson) {
         console.log(myJson.values);
-    }).catch(function (o) {
+      }).catch(function (o) {
         console.log("Hubo un problema con la petición Fetch:" + o.message);
+      });
+    }
+
+    (document.onscroll = function () {
+      window.scrollY >= 7 || window.pageYOffset >= 7 ? (h.classList.add("sticky-gray"), sourceLogoDesktop.setAttribute("srcset", srcsetImgRed), sourceLogoMobile.setAttribute("src", srcImgRed)) : (h.classList.remove("sticky-gray"), sourceLogoDesktop.setAttribute("srcset", srcsetImgWhite), sourceLogoMobile.setAttribute("src", srcImgWhite));
+    }), (window.onload = function () {
+      document.querySelectorAll(".btn-Social");
+    });        </script>
+
+  <script type="text/javascript">
+
+    /*d3.csv("https://raw.githubusercontent.com/annaabsi/git-scraper-covid19/main/resultados/positivos_por_departamentos.csv", function(data){
+        var totalSum = [d3.sum(data.map(function(d){ return d.METODODX}))];
+        var totalPositivos = d3.select("#total-positivos").append("span").text((totalSum[0]).toLocaleString('id-ID'));
+    });*/
+
+    //https://raw.githubusercontent.com/annaabsi/git-scraper-covid19/main/resultados/covid.json
+
+    d3.json("https://raw.githubusercontent.com/annaabsi/git-scraper-covid19/main/resultados/covid.json").then(function (d) {
+      var positivos = parseInt(d["total_confirmados"]);
+      var totalPositivos = d3.select("#total-positivos").append("span").text((positivos).toLocaleString('id-ID'));
+
+      var fallecidos = parseInt(d["total_fallecidos"]);
+      var totalFallecidos = d3.select("#total-fallecidos").append("span").text((fallecidos).toLocaleString('id-ID'));
+
+      var altas = parseInt(d["total_altas"]);
+      var totalAltas = d3.select("#total-altas").append("span").text((altas).toLocaleString('id-ID'));
     });
-}
 
-(document.onscroll = function () {
-    window.scrollY >= 7 || window.pageYOffset >= 7 ? (h.classList.add("sticky-gray"), sourceLogoDesktop.setAttribute("srcset", srcsetImgRed), sourceLogoMobile.setAttribute("src", srcImgRed)) : (h.classList.remove("sticky-gray"), sourceLogoDesktop.setAttribute("srcset", srcsetImgWhite), sourceLogoMobile.setAttribute("src", srcImgWhite));
-}), (window.onload = function () {
-    document.querySelectorAll(".btn-Social");
-});        </script>
+    d3.json("https://raw.githubusercontent.com/annaabsi/git-scraper-covid19/main/resultados/fecha_corte_positivos.json").then(function (d) {
+      var dataDate = d["fecha_corte"].toString();
+      var dd = dataDate.slice(6, 8);
+      var mm = dataDate.slice(4, 6);
+      var yyyy = dataDate.slice(0, 4);
+      hoy = dd + '/' + mm + '/' + yyyy;
+      var fechaActualizacion = d3.select("#fecha").append("span").text(hoy);
+    });
 
-<script type="text/javascript">
+    var today = new Date();
+    var d = String(today.getDate()).padStart(2, '0');
+    var m = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var y = today.getFullYear();
+    today = d + '/' + m + '/' + y;
+    document.getElementById('today').textContent = today;
 
-/*d3.csv("https://raw.githubusercontent.com/annaabsi/git-scraper-covid19/main/resultados/positivos_por_departamentos.csv", function(data){
-    var totalSum = [d3.sum(data.map(function(d){ return d.METODODX}))];
-    var totalPositivos = d3.select("#total-positivos").append("span").text((totalSum[0]).toLocaleString('id-ID'));
-});*/
+  </script>
+  <script>
+        mapboxgl.accessToken =
+            "pk.eyJ1IjoiZ2VueWxlb25nIiwiYSI6ImNqeTdrMWQweDAwYWUzZXM2ZHUxN3lxcWMifQ.taFCKYjv4VSHhWN86P8N1Q";
 
-//https://raw.githubusercontent.com/annaabsi/git-scraper-covid19/main/resultados/covid.json
+        var map = new mapboxgl.Map({
+            container: "map",
+            center: [-75.178, -9.184],
+            minZoom: 3,
+            zoom: 3.8,
+            style: "mapbox://styles/mapbox/light-v10",
+        });
 
-d3.json("https://raw.githubusercontent.com/annaabsi/git-scraper-covid19/main/resultados/covid.json").then(function (d) {
-    var positivos = parseInt(d["total_confirmados"]);
-    var totalPositivos = d3.select("#total-positivos").append("span").text((positivos).toLocaleString('id-ID'));
+        function getColor(n) {
+            return n >= 100 ?
+                "#800026" :
+                n >= 70 ?
+                "#bd0026" :
+                n >= 60 ?
+                "#e31a1c" :
+                n >= 50 ?
+                "#fc4e2a" :
+                n >= 30 ?
+                "#fd8d3c" :
+                n >= 20 ?
+                "#feb24c" :
+                n >= 15 ?
+                "#fed976" :
+                n >= 5 ?
+                "#ffeda0" :
+                "#ffffcc";
+        }
 
-    var fallecidos = parseInt(d["total_fallecidos"]);
-    var totalFallecidos = d3.select("#total-fallecidos").append("span").text((fallecidos).toLocaleString('id-ID'));
+        function filterBy(data, covid_filter, week) {
+            //console.log(data, data_covid, week);
+            //         casos = _.chain(data_covid)
+            //           .groupBy("FECHA_RESULTADO")
+            //           .toPairs()
+            //           .map(function(currentData) {
+            //             return _.zipObject(["FECHA_RESULTADO", "users"], currentData);
+            //           })
+            //           .value();
 
-    var altas = parseInt(d["total_altas"]);
-    var totalAltas = d3.select("#total-altas").append("span").text((altas).toLocaleString('id-ID'));
-});
+            //         provincia = _.chain(casos[22].users)
+            //           .keyBy("PROVINCIA")
+            //           .mapValues("TOTAL")
+            //           .value();
 
-d3.json("https://raw.githubusercontent.com/annaabsi/git-scraper-covid19/main/resultados/fecha_corte_positivos.json").then(function (d) {
-    var dataDate = d["fecha_corte"].toString();
-    var dd = dataDate.slice(6,8);
-    var mm = dataDate.slice(4,6);
-    var yyyy = dataDate.slice(0,4);
-    hoy = dd + '/' + mm + '/' + yyyy;
-    var fechaActualizacion = d3.select("#fecha").append("span").text(hoy);
-});
+            features = data.features.map((d, b) => {
+                var popup = new mapboxgl.Popup();
+                var layerID = d.properties.NOMBPROV;
+                //console.log(layerID)
 
-var today = new Date();
-var d = String(today.getDate()).padStart(2, '0');
-var m = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-var y = today.getFullYear();
-today = d + '/' + m + '/' + y;
-document.getElementById('today').textContent = today;
+                // if (week == "8") {
 
-</script>
+                provincia = _.chain(casos[week].users)
+                    .keyBy("PROVINCIA")
+                    .mapValues("TOTAL")
+                    .value();
 
-<script>
-      mapboxgl.accessToken =
-        "pk.eyJ1IjoiZ2VueWxlb25nIiwiYSI6ImNqeTdrMWQweDAwYWUzZXM2ZHUxN3lxcWMifQ.taFCKYjv4VSHhWN86P8N1Q";
+                value_input = document.getElementById("slider").value;
+                console.log(casos, value_input);
+                if (value_input == 0) {
+                    document.getElementById("week_a_week").textContent =
+                        "Semana del 2021-01-19" +
+                        " hasta el " +
+                        casos[week]["FECHA_RESULTADO"];
+                } else {
+                    console.log(casos[week]["FECHA_RESULTADO"]);
+                    const date_next = casos[week - 1]["FECHA_RESULTADO"];
+                    //date_next.setDate(date_next.getDate() + 1);
 
-      var map = new mapboxgl.Map({
-        container: "map",
-        center: [-75.178, -9.184],
-        minZoom: 3,
-        zoom: 3.8,
-        style: "mapbox://styles/mapbox/light-v10",
-      });
+                    const array_date = date_next.split("-");
+                    console.log(date_next, array_date[2].split(""));
+                    // const day_convert = "",
+                    //     month_convert = "";
 
-      function getColor(n) {
-        return n >= 50
-          ? "#800026"
-          : n >= 40
-          ? "#bd0026"
-          : n >= 30
-          ? "#e31a1c"
-          : n >= 20
-          ? "#fc4e2a"
-          : n >= 15
-          ? "#fd8d3c"
-          : n >= 10
-          ? "#feb24c"
-          : n >= 5
-          ? "#fed976"
-          : n >= 1
-          ? "#ffeda0"
-          : "#ffffcc";
-      }
+                    if (array_date[2] < 9) {
+                        day_convert = array_date[2].split("");
+                        day_final = day_convert[0] + (parseInt(day_convert[1]) + 1);
+                        dateFormat =
+                            array_date[0] + "-" + array_date[1] + "-" + day_final;
+                    } else if (array_date[2] >= 9 && array_date[2] < 31) {
+                        day_final = parseInt(array_date[2]) + 1;
+                        dateFormat =
+                            array_date[0] + "-" + array_date[1] + "-" + day_final;
+                    } else if (
+                        array_date[2] == 31 &&
+                        (array_date[1] == "01" ||
+                            array_date[1] == "03" ||
+                            array_date[1] == "05" ||
+                            array_date[1] == "07" ||
+                            array_date[1] == "08" ||
+                            array_date[1] == "10" ||
+                            array_date[1] == "12")
+                    ) {
+                        const month_convert = array_date[1].split("");
 
-      function filterBy(data, covid_filter, week) {
-        //console.log(data, data_covid, week);
-        //         casos = _.chain(data_covid)
-        //           .groupBy("FECHA_RESULTADO")
-        //           .toPairs()
-        //           .map(function(currentData) {
-        //             return _.zipObject(["FECHA_RESULTADO", "users"], currentData);
-        //           })
-        //           .value();
+                        month_final = month_convert[0] + parseInt(month_convert[1] + 1);
+                        console.log(month_convert, month_final);
+                        dateFormat = array_date[0] + "-" + month_final + "-" + "01";
+                    }
 
-        //         provincia = _.chain(casos[22].users)
-        //           .keyBy("PROVINCIA")
-        //           .mapValues("TOTAL")
-        //           .value();
-
-        features = data.features.map((d, b) => {
-          var popup = new mapboxgl.Popup();
-          var layerID = d.properties.NOMBPROV;
-          //console.log(layerID)
-
-          // if (week == "8") {
-
-          provincia = _.chain(casos[week].users)
-            .keyBy("PROVINCIA")
-            .mapValues("TOTAL")
-            .value();
-            
-
-          console.log(casos)
-
-            function fecha_modificada(fecha) {
-                return fecha.slice(8,10) + '-' + fecha.slice(5,7) + '-' + fecha.slice(0,4) }
-
-          value_input = document.getElementById("slider").value;
-
-          console.log(casos, value_input);
-
-          if (value_input == 0) {
-            document.getElementById("week_a_week").textContent =
-              "Semana del 23-08-2021" +
-              " hasta el " +
-              fecha_modificada(casos[week]["FECHA_RESULTADO"]);
-          } else {
-
-            const date_next = casos[week - 1]["FECHA_RESULTADO"];
-            //date_next.setDate(date_next.getDate() + 1);
-
-            array_date = date_next.split("-");
-            console.log(date_next.split("-"));
-
-            if (array_date[2] < 9) {
-              const day_convert = array_date[2].split("");
-              day_final = day_convert[0] + (parseInt(day_convert[1]) + 1);
-            } else if (array_date[2] >= 9) {
-              day_final = parseInt(array_date[2]) + 1;
-            }
-
-            dateFormat = array_date[0] + "-" + array_date[1] + "-" + day_final;
-
-            document.getElementById("week_a_week").textContent =
-              "Semana del " +
-              fecha_modificada(dateFormat) +
-              " hasta el " +
-              fecha_modificada(casos[week]["FECHA_RESULTADO"]);
-          }
-
-          if (provincia[layerID] !== "") {
-            map.setPaintProperty(
-              layerID,
-              "fill-color",
-              getColor(provincia[layerID])
-            );
-
-            function _isContains(json, value) {
-              let contains = false;
-              Object.keys(json).some((key) => {
-                contains =
-                  typeof json[key] === "object"
-                    ? _isContains(json[key], value)
-                    : json[key] === value;
-                return contains;
-              });
-              return contains;
-            }
-
-            const todas_provincias = casos[week].users;
-            const array_cero = [];
-            const array_max = [];
-            for (provincia in todas_provincias) {
-              casos_provincia = todas_provincias[provincia]["TOTAL"];
-              nombre_provincia = todas_provincias[provincia]["PROVINCIA"];
-
-              if (casos_provincia == 0) {
-                array_cero.push(nombre_provincia);
-              }
-              if (casos_provincia > 100) {
-                array_max.push(nombre_provincia);
-              }
-            }
-
-            console.log(array_cero, array_max);
-            document.getElementById("conclusion").innerHTML =
-              "<p>Provincias con ningún caso de COVID-19 reportado durante la semana seleccionada: " +
-              array_cero.join(", ") +
-              "</p><p>Provincias con más de 100 casos de COVID-19 reportados  por cada 100.000 habitantes durante la semana seleccionada: " +
-              array_max.join(", ") +
-              "</p>";
-
-            map.on("click", layerID, function (e) {
-              //console.log(casos[22].users)
-              total_provincia = casos[week].users;
-              console.log(total_provincia);
-
-              for (prov in total_provincia) {
-                getProv = e.features[0].properties.NOMBPROV;
-                getDep = e.features[0].properties.FIRST_NOMB;
-
-                getProvName = total_provincia[prov]["PROVINCIA"];
-
-                checkValue = _isContains(total_provincia, getProv);
-                console.log(checkValue);
-
-                if (getProv == getProvName && checkValue == true) {
-                  casos_provincia = total_provincia[prov]["TOTAL"];
-                  casos_mujeres = total_provincia[prov]["FEMENINO"];
-                  casos_hombres = total_provincia[prov]["MASCULINO"];
-                  casos_region = total_provincia[prov]["INDICE"];
-                } else if (checkValue == false) {
-                  casos_region = total_provincia[prov]["INDICE"];
-                  casos_provincia = "n/a";
-                  casos_mujeres = "n/a";
-                  casos_hombres = "n/a";
+                    document.getElementById("week_a_week").textContent =
+                        "Semana del " +
+                        dateFormat +
+                        " hasta el " +
+                        casos[week]["FECHA_RESULTADO"];
                 }
-              }
 
-              var x, i;
-              x = document.querySelectorAll(".mapboxgl-popup");
-              for (i = 0; i < x.length; i++) {
-                x[i].remove();
-              }
-              //$(".mapboxgl-popup").remove();
-              popup
-                .setLngLat(e.lngLat)
-                .setHTML(
-                  "<p class='provincia'>" +
-                    getDep +
-                    " - " +
-                    getProv +
-                    "</p><p class='totales'>" +
-                    casos_provincia +
-                    " casos cada 100.000 hab.</p><p class='totales'>" +
-                    casos_mujeres +
-                    " mujeres cada 100.000 hab.</p><p class='totales'>" +
-                    casos_hombres +
-                    " hombres cada 100.000 hab.</p><p class='total_region'>Acumulado de la región/100.000 hab: " +
-                    casos_region +
-                    "</p>"
-                )
-                .addTo(map);
+                if (provincia[layerID] !== "") {
+                    map.setPaintProperty(
+                        layerID,
+                        "fill-color",
+                        getColor(provincia[layerID])
+                    );
+
+                    function _isContains(json, value) {
+                        //console.log(value);
+                        let contains = false;
+                        Object.keys(json).some((key) => {
+                            //console.log(json[key]);
+
+                            contains =
+                                typeof json[key] === "object" ?
+                                _isContains(json[key], value) :
+                                json[key] === value;
+                            return contains;
+                        });
+                        return contains;
+                    }
+
+                    const todas_provincias = casos[week].users;
+                    const array_cero = [];
+                    const array_max = [];
+                    for (provincia in todas_provincias) {
+                        casos_provincia = todas_provincias[provincia]["TOTAL"];
+                        nombre_provincia = todas_provincias[provincia]["PROVINCIA"];
+
+                        if (casos_provincia == 0) {
+                            array_cero.push(nombre_provincia);
+                        }
+                        if (casos_provincia > 100) {
+                            array_max.push(nombre_provincia);
+                        }
+                    }
+
+                    //console.log(array_cero, array_max);
+                    document.getElementById("conclusion").innerHTML =
+                        "<p>Provincias con ningun caso de COVID-19 durante la semana seleccionada: " +
+                        array_cero.join(", ") +
+                        "</p><p>Provincias con más de 100 casos de COVID-19 cada 100.000 habitantes durante la semana seleccionada: " +
+                        array_max.join(", ") +
+                        "</p>";
+
+                    map.on("click", layerID, function(e) {
+                        //console.log(casos[22].users)
+                        console.log(casos[week]);
+                        var total_provincia = casos[week].users;
+                        console.log(total_provincia);
+                        var casos_provincia, casos_mujeres, casos_hombres, casos_region;
+
+                        for (prov in total_provincia) {
+                            //console.log(prov);
+                            getProv = e.features[0].properties.NOMBPROV;
+                            getDep = e.features[0].properties.FIRST_NOMB;
+
+                            getProvName = total_provincia[prov]["PROVINCIA"];
+                            //console.log(total_provincia, getProv);
+                            var checkValue = _isContains(total_provincia, getProv);
+                            console.log(getProv, checkValue);
+                            if (getProv == getProvName && checkValue == true) {
+                                console.log(getProvName, getProv);
+                                casos_provincia = total_provincia[prov]["TOTAL"];
+                                casos_mujeres = total_provincia[prov]["FEMENINO"];
+                                casos_hombres = total_provincia[prov]["MASCULINO"];
+                                casos_region = total_provincia[prov]["INDICE"];
+                            }
+
+                            if (casos_provincia == undefined || checkValue == false) {
+                                //console.log(total_provincia[prov]["INDICE"]);
+                                casos_region = "n/a";
+                                casos_provincia = "n/a";
+                                casos_mujeres = "n/a";
+                                casos_hombres = "n/a";
+                            }
+                        }
+
+                        var x, i;
+                        x = document.querySelectorAll(".mapboxgl-popup");
+                        for (i = 0; i < x.length; i++) {
+                            x[i].remove();
+                        }
+                        //$(".mapboxgl-popup").remove();
+                        popup
+                            .setLngLat(e.lngLat)
+                            .setHTML(
+                                "<p class='provincia'>" +
+                                getDep +
+                                " - " +
+                                getProv +
+                                "</p><p class='totales'>" +
+                                casos_provincia +
+                                " casos cada 100.000 hab.</p><p class='totales'>" +
+                                casos_mujeres +
+                                " mujeres cada 100.000 hab.</p><p class='totales'>" +
+                                casos_hombres +
+                                " hombres cada 100.000 hab.</p><p class='total_region'>Acumulado de la región/100.000 hab: " +
+                                casos_region +
+                                "</p>"
+                            )
+                            .addTo(map);
+                    });
+                }
+
+                map.on("mouseenter", layerID, function() {
+                    map.getCanvas().style.cursor = "pointer";
+                });
+
+                // Change it back to a pointer when it leaves.
+                map.on("mouseleave", layerID, function() {
+                    map.getCanvas().style.cursor = "";
+                });
+
+                map.setFilter(layerID, ["==", ["get", "NOMBPROV"], layerID]);
             });
-          }
+        }
 
-          map.on("mouseenter", layerID, function () {
-            map.getCanvas().style.cursor = "pointer";
-          });
+        map.on("load", async function() {
+            //var result = [];
+            var files = [
+                "geojson.json",
+                "https://raw.githubusercontent.com/GenyLeong/casos_provincia/main/dataset_covid_total.json",
+            ];
 
-          // Change it back to a pointer when it leaves.
-          map.on("mouseleave", layerID, function () {
-            map.getCanvas().style.cursor = "";
-          });
+            const data = await d3.json(files[0]);
+            const data_covid = await d3.json(files[1]);
+            const covid_filter = data_covid["data"];
 
-          map.setFilter(layerID, ["==", ["get", "NOMBPROV"], layerID]);
-        });
-      }
+            console.log(data, data_covid);
 
-      map.on("load", async function () {
-        //var result = [];
-        var files = [
-          "geojson.json",
-          "https://raw.githubusercontent.com/GenyLeong/casos_provincia/main/dataset_covid_total.json",
-        ];
+            map["dragPan"].disable();
 
-        const data = await d3.json(files[0]);
-        const data_covid = await d3.json(files[1]);
-        const covid_filter = data_covid["data"];
-
-        console.log(data, data_covid)
-        
-        map["dragPan"].disable();
-
-        map.addSource("data", {
-          type: "geojson",
-          data: data,
-        });
-
-        data.features.forEach(function (d, b) {
-          var layerID = d.properties.NOMBPROV;
-
-          //console.log(covid_filter)
-          casos = _.chain(covid_filter)
-            .groupBy("FECHA_RESULTADO")
-            .toPairs()
-            .map(function (currentData) {
-              return _.zipObject(["FECHA_RESULTADO", "users"], currentData);
-            })
-            .value();
-
-          console.log(casos);
-
-          provincia = _.chain(casos[7].users)
-            .keyBy("PROVINCIA")
-            .mapValues("TOTAL")
-            .value();
-
-          if (!map.getLayer(layerID) && provincia[layerID] !== "") {
-            map.addLayer({
-              id: layerID,
-              type: "fill",
-              source: "data",
-              layout: {},
-              paint: {
-                "fill-color": getColor(provincia[layerID]),
-                "fill-opacity": 0.6,
-              },
+            map.addSource("data", {
+                type: "geojson",
+                data: data,
             });
-          }
+
+            data.features.forEach(function(d, b) {
+                var layerID = d.properties.NOMBPROV;
+
+                //console.log(covid_filter);
+                casos = _.chain(covid_filter)
+                    .groupBy("FECHA_RESULTADO")
+                    .toPairs()
+                    .map(function(currentData) {
+                        return _.zipObject(["FECHA_RESULTADO", "users"], currentData);
+                    })
+                    .value();
+
+                //console.log(casos);
+
+                provincia = _.chain(casos[7].users)
+                    .keyBy("PROVINCIA")
+                    .mapValues("TOTAL")
+                    .value();
+
+                if (!map.getLayer(layerID) && provincia[layerID] !== "") {
+                    map.addLayer({
+                        id: layerID,
+                        type: "fill",
+                        source: "data",
+                        layout: {},
+                        paint: {
+                            "fill-color": getColor(provincia[layerID]),
+                            "fill-opacity": 0.6,
+                        },
+                    });
+                }
+            });
+
+            filterBy(data, covid_filter, 7);
+
+            document
+                .getElementById("slider")
+                .addEventListener("input", function(e) {
+                    var week = parseInt(e.target.value, 8);
+                    console.log(week);
+                    filterBy(data, covid_filter, week);
+                });
         });
-
-        filterBy(data, covid_filter, 7);
-
-        document
-          .getElementById("slider")
-          .addEventListener("input", function (e) {
-            var week = parseInt(e.target.value, 8);
-            console.log(week);
-            filterBy(data, covid_filter, week);
-          });
-      });
     </script>
-
 </body>
+
 </html>
