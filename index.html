@@ -863,7 +863,7 @@
       <input id="slider" type="range" min="0" max="7" step="1" value="7" />
       <div id="map"></div>
       <p class="note">
-        Nota: En la base de datos analizada no se han tomado en cuenta 11314 casos de COVID-19 debido a que las provincias a las que pertenecen están en investigación.
+          Nota: En la base de datos analizada no se han tomado en cuenta 2689 casos de COVID-19 debido a que la información no está completa.
       </p>
       <div id="conclusion" class="note"></div>
     </div>
@@ -1781,296 +1781,298 @@
 
   </script>
   <script>
-        mapboxgl.accessToken =
-            "pk.eyJ1IjoiZ2VueWxlb25nIiwiYSI6ImNqeTdrMWQweDAwYWUzZXM2ZHUxN3lxcWMifQ.taFCKYjv4VSHhWN86P8N1Q";
+    mapboxgl.accessToken =
+        "pk.eyJ1IjoiZ2VueWxlb25nIiwiYSI6ImNqeTdrMWQweDAwYWUzZXM2ZHUxN3lxcWMifQ.taFCKYjv4VSHhWN86P8N1Q";
 
-        var map = new mapboxgl.Map({
-            container: "map",
-            center: [-75.178, -9.184],
-            minZoom: 3,
-            zoom: 3.8,
-            style: "mapbox://styles/mapbox/light-v10",
-        });
+    var map = new mapboxgl.Map({
+        container: "map",
+        center: [-75.178, -9.184],
+        minZoom: 3,
+        zoom: 3.8,
+        style: "mapbox://styles/mapbox/light-v10",
+    });
 
-        function getColor(n) {
-            return n >= 100 ?
-                "#800026" :
-                n >= 70 ?
-                "#bd0026" :
-                n >= 60 ?
-                "#e31a1c" :
-                n >= 50 ?
-                "#fc4e2a" :
-                n >= 30 ?
-                "#fd8d3c" :
-                n >= 20 ?
-                "#feb24c" :
-                n >= 15 ?
-                "#fed976" :
-                n >= 5 ?
-                "#ffeda0" :
-                "#ffffcc";
-        }
+    function getColor(n) {
+        return n >= 100 ?
+            "#800026" :
+            n >= 70 ?
+            "#bd0026" :
+            n >= 60 ?
+            "#e31a1c" :
+            n >= 50 ?
+            "#fc4e2a" :
+            n >= 30 ?
+            "#fd8d3c" :
+            n >= 20 ?
+            "#feb24c" :
+            n >= 15 ?
+            "#fed976" :
+            n >= 5 ?
+            "#ffeda0" :
+            "#ffffcc";
+    }
 
-        function filterBy(data, covid_filter, week) {
-            //console.log(data, data_covid, week);
-            //         casos = _.chain(data_covid)
-            //           .groupBy("FECHA_RESULTADO")
-            //           .toPairs()
-            //           .map(function(currentData) {
-            //             return _.zipObject(["FECHA_RESULTADO", "users"], currentData);
-            //           })
-            //           .value();
+    function filterBy(data, covid_filter, week) {
+        //console.log(data, data_covid, week);
+        //         casos = _.chain(data_covid)
+        //           .groupBy("FECHA_RESULTADO")
+        //           .toPairs()
+        //           .map(function(currentData) {
+        //             return _.zipObject(["FECHA_RESULTADO", "users"], currentData);
+        //           })
+        //           .value();
 
-            //         provincia = _.chain(casos[22].users)
-            //           .keyBy("PROVINCIA")
-            //           .mapValues("TOTAL")
-            //           .value();
+        //         provincia = _.chain(casos[22].users)
+        //           .keyBy("PROVINCIA")
+        //           .mapValues("TOTAL")
+        //           .value();
 
-            features = data.features.map((d, b) => {
-                var popup = new mapboxgl.Popup();
-                var layerID = d.properties.NOMBPROV;
-                //console.log(layerID)
+        features = data.features.map((d, b) => {
+            var popup = new mapboxgl.Popup();
+            var layerID = d.properties.NOMBPROV;
+            //console.log(layerID)
 
-                // if (week == "8") {
+            // if (week == "8") {
 
-                provincia = _.chain(casos[week].users)
-                    .keyBy("PROVINCIA")
-                    .mapValues("TOTAL")
-                    .value();
+            provincia = _.chain(casos[week].users)
+                .keyBy("PROVINCIA")
+                .mapValues("TOTAL")
+                .value();
 
-                value_input = document.getElementById("slider").value;
-                console.log(casos, value_input);
-                if (value_input == 0) {
-                    document.getElementById("week_a_week").textContent =
-                        "Semana del 2021-01-19" +
-                        " hasta el " +
-                        casos[week]["FECHA_RESULTADO"];
-                } else {
-                    console.log(casos[week]["FECHA_RESULTADO"]);
-                    const date_next = casos[week - 1]["FECHA_RESULTADO"];
-                    //date_next.setDate(date_next.getDate() + 1);
+            value_input = document.getElementById("slider").value;
+            console.log(casos, value_input);
+            if (value_input == 0) {
+                document.getElementById("week_a_week").textContent =
+                    "Semana del 2021-01-19" +
+                    " hasta el " +
+                    casos[week]["FECHA_RESULTADO"];
+            } else {
+                console.log(casos[week]["FECHA_RESULTADO"]);
+                const date_next = casos[week - 1]["FECHA_RESULTADO"];
+                //date_next.setDate(date_next.getDate() + 1);
 
-                    const array_date = date_next.split("-");
-                    console.log(date_next, array_date[2].split(""));
-                    // const day_convert = "",
-                    //     month_convert = "";
+                const array_date = date_next.split("-");
+                console.log(date_next, array_date[2].split(""));
+                // const day_convert = "",
+                //     month_convert = "";
 
-                    if (array_date[2] < 9) {
-                        day_convert = array_date[2].split("");
-                        day_final = day_convert[0] + (parseInt(day_convert[1]) + 1);
-                        dateFormat =
-                            array_date[0] + "-" + array_date[1] + "-" + day_final;
-                    } else if (array_date[2] >= 9 && array_date[2] < 31) {
-                        day_final = parseInt(array_date[2]) + 1;
-                        dateFormat =
-                            array_date[0] + "-" + array_date[1] + "-" + day_final;
-                    } else if (
-                        array_date[2] == 31 &&
-                        (array_date[1] == "01" ||
-                            array_date[1] == "03" ||
-                            array_date[1] == "05" ||
-                            array_date[1] == "07" ||
-                            array_date[1] == "08" ||
-                            array_date[1] == "10" ||
-                            array_date[1] == "12")
-                    ) {
-                        const month_convert = array_date[1].split("");
+                if (array_date[2] < 9) {
+                    day_convert = array_date[2].split("");
+                    day_final = day_convert[0] + (parseInt(day_convert[1]) + 1);
+                    dateFormat =
+                        array_date[0] + "-" + array_date[1] + "-" + day_final;
+                } else if (array_date[2] >= 9 && array_date[2] < 31) {
+                    day_final = parseInt(array_date[2]) + 1;
+                    dateFormat =
+                        array_date[0] + "-" + array_date[1] + "-" + day_final;
+                } else if (
+                    array_date[2] == 31 &&
+                    (array_date[1] == "01" ||
+                        array_date[1] == "03" ||
+                        array_date[1] == "05" ||
+                        array_date[1] == "07" ||
+                        array_date[1] == "08" ||
+                        array_date[1] == "10" ||
+                        array_date[1] == "12")
+                ) {
+                    const month_convert = array_date[1].split("");
 
-                        month_final = month_convert[0] + parseInt(month_convert[1] + 1);
-                        console.log(month_convert, month_final);
-                        dateFormat = array_date[0] + "-" + month_final + "-" + "01";
-                    }
-
-                    document.getElementById("week_a_week").textContent =
-                        "Semana del " +
-                        dateFormat +
-                        " hasta el " +
-                        casos[week]["FECHA_RESULTADO"];
+                    month_final = month_convert[0] + parseInt(month_convert[1] + 1);
+                    console.log(month_convert, month_final);
+                    dateFormat = array_date[0] + "-" + month_final + "-" + "01";
                 }
 
-                if (provincia[layerID] !== "") {
-                    map.setPaintProperty(
-                        layerID,
-                        "fill-color",
-                        getColor(provincia[layerID])
-                    );
+                document.getElementById("week_a_week").textContent =
+                    "Semana del " +
+                    dateFormat +
+                    " hasta el " +
+                    casos[week]["FECHA_RESULTADO"];
+            }
 
-                    function _isContains(json, value) {
-                        //console.log(value);
-                        let contains = false;
-                        Object.keys(json).some((key) => {
-                            //console.log(json[key]);
+            if (provincia[layerID] !== "") {
+                map.setPaintProperty(
+                    layerID,
+                    "fill-color",
+                    getColor(provincia[layerID])
+                );
 
-                            contains =
-                                typeof json[key] === "object" ?
-                                _isContains(json[key], value) :
-                                json[key] === value;
-                            return contains;
-                        });
+                function _isContains(json, value) {
+                    //console.log(value);
+                    let contains = false;
+                    Object.keys(json).some((key) => {
+                        //console.log(json[key]);
+
+                        contains =
+                            typeof json[key] === "object" ?
+                            _isContains(json[key], value) :
+                            json[key] === value;
                         return contains;
-                    }
-
-                    const todas_provincias = casos[week].users;
-                    const array_cero = [];
-                    const array_max = [];
-                    for (provincia in todas_provincias) {
-                        casos_provincia = todas_provincias[provincia]["TOTAL"];
-                        nombre_provincia = todas_provincias[provincia]["PROVINCIA"];
-
-                        if (casos_provincia == 0) {
-                            array_cero.push(nombre_provincia);
-                        }
-                        if (casos_provincia > 100) {
-                            array_max.push(nombre_provincia);
-                        }
-                    }
-
-                    //console.log(array_cero, array_max);
-                    document.getElementById("conclusion").innerHTML =
-                        "<p>Provincias con ningun caso de COVID-19 durante la semana seleccionada: " +
-                        array_cero.join(", ") +
-                        "</p><p>Provincias con más de 100 casos de COVID-19 cada 100.000 habitantes durante la semana seleccionada: " +
-                        array_max.join(", ") +
-                        "</p>";
-
-                    map.on("click", layerID, function(e) {
-                        //console.log(casos[22].users)
-                        console.log(casos[week]);
-                        var total_provincia = casos[week].users;
-                        console.log(total_provincia);
-                        var casos_provincia, casos_mujeres, casos_hombres, casos_region;
-
-                        for (prov in total_provincia) {
-                            //console.log(prov);
-                            getProv = e.features[0].properties.NOMBPROV;
-                            getDep = e.features[0].properties.FIRST_NOMB;
-
-                            getProvName = total_provincia[prov]["PROVINCIA"];
-                            //console.log(total_provincia, getProv);
-                            var checkValue = _isContains(total_provincia, getProv);
-                            console.log(getProv, checkValue);
-                            if (getProv == getProvName && checkValue == true) {
-                                console.log(getProvName, getProv);
-                                casos_provincia = total_provincia[prov]["TOTAL"];
-                                casos_mujeres = total_provincia[prov]["FEMENINO"];
-                                casos_hombres = total_provincia[prov]["MASCULINO"];
-                                casos_region = total_provincia[prov]["INDICE"];
-                            }
-
-                            if (casos_provincia == undefined || checkValue == false) {
-                                //console.log(total_provincia[prov]["INDICE"]);
-                                casos_region = "n/a";
-                                casos_provincia = "n/a";
-                                casos_mujeres = "n/a";
-                                casos_hombres = "n/a";
-                            }
-                        }
-
-                        var x, i;
-                        x = document.querySelectorAll(".mapboxgl-popup");
-                        for (i = 0; i < x.length; i++) {
-                            x[i].remove();
-                        }
-                        //$(".mapboxgl-popup").remove();
-                        popup
-                            .setLngLat(e.lngLat)
-                            .setHTML(
-                                "<p class='provincia'>" +
-                                getDep +
-                                " - " +
-                                getProv +
-                                "</p><p class='totales'>" +
-                                casos_provincia +
-                                " casos cada 100.000 hab.</p><p class='totales'>" +
-                                casos_mujeres +
-                                " mujeres cada 100.000 hab.</p><p class='totales'>" +
-                                casos_hombres +
-                                " hombres cada 100.000 hab.</p><p class='total_region'>Acumulado de la región/100.000 hab: " +
-                                casos_region +
-                                "</p>"
-                            )
-                            .addTo(map);
                     });
+                    return contains;
                 }
 
-                map.on("mouseenter", layerID, function() {
-                    map.getCanvas().style.cursor = "pointer";
-                });
+                const todas_provincias = casos[week].users;
+                const array_cero = [];
+                const array_max = [];
+                for (provincia in todas_provincias) {
+                    casos_provincia = todas_provincias[provincia]["TOTAL"];
+                    nombre_provincia = todas_provincias[provincia]["PROVINCIA"];
 
-                // Change it back to a pointer when it leaves.
-                map.on("mouseleave", layerID, function() {
-                    map.getCanvas().style.cursor = "";
-                });
-
-                map.setFilter(layerID, ["==", ["get", "NOMBPROV"], layerID]);
-            });
-        }
-
-        map.on("load", async function() {
-            //var result = [];
-            var files = [
-                "geojson.json",
-                "https://raw.githubusercontent.com/GenyLeong/casos_provincia/main/dataset_covid_total.json",
-            ];
-
-            const data = await d3.json(files[0]);
-            const data_covid = await d3.json(files[1]);
-            const covid_filter = data_covid["data"];
-
-            console.log(data, data_covid);
-
-            map["dragPan"].disable();
-
-            map.addSource("data", {
-                type: "geojson",
-                data: data,
-            });
-
-            data.features.forEach(function(d, b) {
-                var layerID = d.properties.NOMBPROV;
-
-                //console.log(covid_filter);
-                casos = _.chain(covid_filter)
-                    .groupBy("FECHA_RESULTADO")
-                    .toPairs()
-                    .map(function(currentData) {
-                        return _.zipObject(["FECHA_RESULTADO", "users"], currentData);
-                    })
-                    .value();
-
-                //console.log(casos);
-
-                provincia = _.chain(casos[7].users)
-                    .keyBy("PROVINCIA")
-                    .mapValues("TOTAL")
-                    .value();
-
-                if (!map.getLayer(layerID) && provincia[layerID] !== "") {
-                    map.addLayer({
-                        id: layerID,
-                        type: "fill",
-                        source: "data",
-                        layout: {},
-                        paint: {
-                            "fill-color": getColor(provincia[layerID]),
-                            "fill-opacity": 0.6,
-                        },
-                    });
+                    if (casos_provincia == 0) {
+                        array_cero.push(nombre_provincia);
+                    }
+                    if (casos_provincia > 100) {
+                        array_max.push(nombre_provincia);
+                    }
                 }
+
+                //console.log(array_cero, array_max);
+                document.getElementById("conclusion").innerHTML =
+                    array_cero.length > 0 && array_max.length > 0 ?
+                    "<p>Provincias con ningún caso de COVID-19 durante la semana seleccionada: " +
+                    array_cero.join(", ") +
+                    "</p><p>Provincias con más de 100 casos de COVID-19 cada 100.000 habitantes durante la semana seleccionada: " +
+                    array_max.join(", ") +
+                    "</p>" :
+                    "<p>Provincias con ningún caso de COVID-19 durante la semana seleccionada: NINGUNA</p><p>Provincias con más de 100 casos de COVID-19 cada 100.000 habitantes durante la semana seleccionada: NINGUNA</p>";
+
+                map.on("click", layerID, function(e) {
+                    //console.log(casos[22].users)
+                    console.log(casos[week]);
+                    var total_provincia = casos[week].users;
+                    console.log(total_provincia);
+                    var casos_provincia, casos_mujeres, casos_hombres, casos_region;
+
+                    for (prov in total_provincia) {
+                        //console.log(prov);
+                        getProv = e.features[0].properties.NOMBPROV;
+                        getDep = e.features[0].properties.FIRST_NOMB;
+
+                        getProvName = total_provincia[prov]["PROVINCIA"];
+                        //console.log(total_provincia, getProv);
+                        var checkValue = _isContains(total_provincia, getProv);
+                        console.log(getProv, checkValue);
+                        if (getProv == getProvName && checkValue == true) {
+                            console.log(getProvName, getProv);
+                            casos_provincia = total_provincia[prov]["TOTAL"];
+                            casos_mujeres = total_provincia[prov]["FEMENINO"];
+                            casos_hombres = total_provincia[prov]["MASCULINO"];
+                            casos_region = total_provincia[prov]["INDICE"];
+                        }
+
+                        if (casos_provincia == undefined || checkValue == false) {
+                            //console.log(total_provincia[prov]["INDICE"]);
+                            casos_region = "n/a";
+                            casos_provincia = "n/a";
+                            casos_mujeres = "n/a";
+                            casos_hombres = "n/a";
+                        }
+                    }
+
+                    var x, i;
+                    x = document.querySelectorAll(".mapboxgl-popup");
+                    for (i = 0; i < x.length; i++) {
+                        x[i].remove();
+                    }
+                    //$(".mapboxgl-popup").remove();
+                    popup
+                        .setLngLat(e.lngLat)
+                        .setHTML(
+                            "<p class='provincia'>" +
+                            getDep +
+                            " - " +
+                            getProv +
+                            "</p><p class='totales'>" +
+                            casos_provincia +
+                            " casos cada 100.000 hab.</p><p class='totales'>" +
+                            casos_mujeres +
+                            " mujeres cada 100.000 hab.</p><p class='totales'>" +
+                            casos_hombres +
+                            " hombres cada 100.000 hab.</p><p class='total_region'>Acumulado de la región/100.000 hab: " +
+                            casos_region +
+                            "</p>"
+                        )
+                        .addTo(map);
+                });
+            }
+
+            map.on("mouseenter", layerID, function() {
+                map.getCanvas().style.cursor = "pointer";
             });
 
-            filterBy(data, covid_filter, 7);
+            // Change it back to a pointer when it leaves.
+            map.on("mouseleave", layerID, function() {
+                map.getCanvas().style.cursor = "";
+            });
 
-            document
-                .getElementById("slider")
-                .addEventListener("input", function(e) {
-                    var week = parseInt(e.target.value, 8);
-                    console.log(week);
-                    filterBy(data, covid_filter, week);
-                });
+            map.setFilter(layerID, ["==", ["get", "NOMBPROV"], layerID]);
         });
-    </script>
+    }
+
+    map.on("load", async function() {
+        //var result = [];
+        var files = [
+            "geojson.json",
+            "https://raw.githubusercontent.com/GenyLeong/casos_provincia/main/dataset_covid_total.json",
+        ];
+
+        const data = await d3.json(files[0]);
+        const data_covid = await d3.json(files[1]);
+        const covid_filter = data_covid["data"];
+
+        console.log(data, data_covid);
+
+        map["dragPan"].disable();
+
+        map.addSource("data", {
+            type: "geojson",
+            data: data,
+        });
+
+        data.features.forEach(function(d, b) {
+            var layerID = d.properties.NOMBPROV;
+
+            //console.log(covid_filter);
+            casos = _.chain(covid_filter)
+                .groupBy("FECHA_RESULTADO")
+                .toPairs()
+                .map(function(currentData) {
+                    return _.zipObject(["FECHA_RESULTADO", "users"], currentData);
+                })
+                .value();
+
+            //console.log(casos);
+
+            provincia = _.chain(casos[7].users)
+                .keyBy("PROVINCIA")
+                .mapValues("TOTAL")
+                .value();
+
+            if (!map.getLayer(layerID) && provincia[layerID] !== "") {
+                map.addLayer({
+                    id: layerID,
+                    type: "fill",
+                    source: "data",
+                    layout: {},
+                    paint: {
+                        "fill-color": getColor(provincia[layerID]),
+                        "fill-opacity": 0.6,
+                    },
+                });
+            }
+        });
+
+        filterBy(data, covid_filter, 7);
+
+        document
+            .getElementById("slider")
+            .addEventListener("input", function(e) {
+                var week = parseInt(e.target.value, 8);
+                console.log(week);
+                filterBy(data, covid_filter, week);
+            });
+    });
+</script>
 </body>
 
 </html>
