@@ -863,7 +863,7 @@
       <input id="slider" type="range" min="0" max="7" step="1" value="7" />
       <div id="map"></div>
       <p class="note">
-          Nota: En la base de datos analizada no se han tomado en cuenta 2689 casos de COVID-19 debido a que la información no está completa.
+        Nota: En la base de datos analizada no se han tomado en cuenta 1594 casos de COVID-19 debido a que la información no está completa.
       </p>
       <div id="conclusion" class="note"></div>
     </div>
@@ -1929,12 +1929,12 @@
                 //console.log(array_cero, array_max);
                 document.getElementById("conclusion").innerHTML =
                     array_cero.length > 0 && array_max.length > 0 ?
-                    "<p>Provincias con ningún caso de COVID-19 durante la semana seleccionada: " +
+                    "<p><span>Provincias con ningún caso de COVID-19 durante la semana seleccionada:</span> " +
                     array_cero.join(", ") +
-                    "</p><p>Provincias con más de 100 casos de COVID-19 cada 100.000 habitantes durante la semana seleccionada: " +
+                    "</p><p><span>Provincias con más de 100 casos de COVID-19 cada 100.000 habitantes durante la semana seleccionada:</span> " +
                     array_max.join(", ") +
                     "</p>" :
-                    "<p>Provincias con ningún caso de COVID-19 durante la semana seleccionada: NINGUNA</p><p>Provincias con más de 100 casos de COVID-19 cada 100.000 habitantes durante la semana seleccionada: NINGUNA</p>";
+                    "<p><span>Provincias con ningún caso de COVID-19 durante la semana seleccionada:</span> NINGUNA</p><p><span>Provincias con más de 100 casos de COVID-19 cada 100.000 habitantes durante la semana seleccionada:</span> NINGUNA</p>";
 
                 map.on("click", layerID, function(e) {
                     //console.log(casos[22].users)
@@ -2072,7 +2072,7 @@
                 filterBy(data, covid_filter, week);
             });
     });
-</script>
+  </script>
 </body>
 
 </html>
