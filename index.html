@@ -1928,7 +1928,7 @@
 
                 //console.log(array_cero, array_max);
                 document.getElementById("conclusion").innerHTML =
-                    array_cero.length > 0 && array_max.length > 0 ?
+                    array_cero.length > 0 || array_max.length > 0 ?
                     "<p><span>Provincias con ningún caso de COVID-19 durante la semana seleccionada:</span> " +
                     array_cero.join(", ") +
                     "</p><p><span>Provincias con más de 100 casos de COVID-19 cada 100.000 habitantes durante la semana seleccionada:</span> " +
